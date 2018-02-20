@@ -1,0 +1,6 @@
+1, USA, 16
+2, Ukraine, 18
+3, England, 18
+4, ElSalvador, 15
+5, Canada, 14
+6, France, 15

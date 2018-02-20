@@ -1,0 +1,6 @@
+1, vodka, 40
+2, beer, 5
+3, champagne, 11
+4, vine, 12
+5, vermouth, 14
+6, whisky, 40

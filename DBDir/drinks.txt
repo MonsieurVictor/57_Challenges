@@ -4,3 +4,4 @@
 4, vine, 12
 5, vermouth, 14
 6, whisky, 40
+7, bourbon, 18

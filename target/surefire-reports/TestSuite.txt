@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.526 s - in TestSuite
+Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.029 s <<< FAILURE! - in TestSuite
+testFahrenheit(TemperatureConverter.ConverterTest)  Time elapsed: 0.017 s  <<< FAILURE!
+java.lang.AssertionError: expected [232.8] but found [288.4]
+	at TemperatureConverter.ConverterTest.testFahrenheit(ConverterTest.java:23)
+

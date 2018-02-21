@@ -2,6 +2,20 @@
 
 <suite name="Suite1" verbose="1" >
     <test name="Nopackage" >
+
+        <groups>
+            <run>
+                <include name="unit"/>
+                <include name="web"/>
+
+            </run>
+        </groups>
+        <classes>
+            <class name="BodyMassIndex.BMITest"/>
+            <class name="PasswordValidation.SignUpTest"/>
+            <class name="TemperatureConverter.ConverterTest"/>
+        </classes>
+
     </test>
 
     <test name="Regression1">

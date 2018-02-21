@@ -1,13 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+<testng-results skipped="0" failed="1" ignored="0" total="6" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite1" duration-ms="104" started-at="2018-02-20T15:17:14Z" finished-at="2018-02-20T15:17:14Z">
+  <suite name="Suite1" duration-ms="285" started-at="2018-02-21T14:22:08Z" finished-at="2018-02-21T14:22:08Z">
     <groups>
+      <group name="unit">
+        <method signature="BMITest.testWeightCalculation()[pri:0, instance:BodyMassIndex.BMITest@7e0ea639]" name="testWeightCalculation" class="BodyMassIndex.BMITest"/>
+        <method signature="ConverterTest.testCelsius()[pri:0, instance:TemperatureConverter.ConverterTest@71be98f5]" name="testCelsius" class="TemperatureConverter.ConverterTest"/>
+        <method signature="SignUpTest.isUniqueLoginTestExisting()[pri:0, instance:PasswordValidation.SignUpTest@7a0ac6e3]" name="isUniqueLoginTestExisting" class="PasswordValidation.SignUpTest"/>
+      </group> <!-- unit -->
+      <group name="web">
+        <method signature="BMITest.testWeightCalculation2()[pri:0, instance:BodyMassIndex.BMITest@7e0ea639]" name="testWeightCalculation2" class="BodyMassIndex.BMITest"/>
+        <method signature="ConverterTest.testFahrenheit()[pri:0, instance:TemperatureConverter.ConverterTest@71be98f5]" name="testFahrenheit" class="TemperatureConverter.ConverterTest"/>
+        <method signature="SignUpTest.isUniqueLoginTestNotExisting()[pri:0, instance:PasswordValidation.SignUpTest@7a0ac6e3]" name="isUniqueLoginTestNotExisting" class="PasswordValidation.SignUpTest"/>
+      </group> <!-- web -->
     </groups>
-    <test name="Nopackage" duration-ms="3" started-at="2018-02-20T15:17:14Z" finished-at="2018-02-20T15:17:14Z">
+    <test name="Nopackage" duration-ms="160" started-at="2018-02-21T14:22:08Z" finished-at="2018-02-21T14:22:08Z">
+      <class name="BodyMassIndex.BMITest">
+        <test-method status="PASS" signature="testWeightCalculation()[pri:0, instance:BodyMassIndex.BMITest@7e0ea639]" name="testWeightCalculation" duration-ms="8" started-at="2018-02-21T14:22:08Z" finished-at="2018-02-21T14:22:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testWeightCalculation -->
+        <test-method status="PASS" signature="testWeightCalculation2()[pri:0, instance:BodyMassIndex.BMITest@7e0ea639]" name="testWeightCalculation2" duration-ms="1" started-at="2018-02-21T14:22:08Z" finished-at="2018-02-21T14:22:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testWeightCalculation2 -->
+      </class> <!-- BodyMassIndex.BMITest -->
+      <class name="PasswordValidation.SignUpTest">
+        <test-method status="PASS" signature="isUniqueLoginTestExisting()[pri:0, instance:PasswordValidation.SignUpTest@7a0ac6e3]" name="isUniqueLoginTestExisting" duration-ms="21" started-at="2018-02-21T14:22:08Z" finished-at="2018-02-21T14:22:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- isUniqueLoginTestExisting -->
+        <test-method status="PASS" signature="isUniqueLoginTestNotExisting()[pri:0, instance:PasswordValidation.SignUpTest@7a0ac6e3]" name="isUniqueLoginTestNotExisting" duration-ms="1" started-at="2018-02-21T14:22:08Z" finished-at="2018-02-21T14:22:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- isUniqueLoginTestNotExisting -->
+      </class> <!-- PasswordValidation.SignUpTest -->
+      <class name="TemperatureConverter.ConverterTest">
+        <test-method status="PASS" signature="testCelsius()[pri:0, instance:TemperatureConverter.ConverterTest@71be98f5]" name="testCelsius" duration-ms="0" started-at="2018-02-21T14:22:08Z" finished-at="2018-02-21T14:22:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCelsius -->
+        <test-method status="FAIL" signature="testFahrenheit()[pri:0, instance:TemperatureConverter.ConverterTest@71be98f5]" name="testFahrenheit" duration-ms="0" started-at="2018-02-21T14:22:08Z" finished-at="2018-02-21T14:22:08Z">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [232.8] but found [288.4]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [232.8] but found [288.4]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:442)
+at TemperatureConverter.ConverterTest.testFahrenheit(ConverterTest.java:23)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:283)
+at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:75)
+at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:120)
+at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:373)
+at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:334)
+at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:119)
+at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:407)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFahrenheit -->
+      </class> <!-- TemperatureConverter.ConverterTest -->
     </test> <!-- Nopackage -->
-    <test name="Regression1" duration-ms="0" started-at="2018-02-20T15:17:14Z" finished-at="2018-02-20T15:17:14Z">
+    <test name="Regression1" duration-ms="0" started-at="2018-02-21T14:22:08Z" finished-at="2018-02-21T14:22:08Z">
     </test> <!-- Regression1 -->
   </suite> <!-- Suite1 -->
 </testng-results>

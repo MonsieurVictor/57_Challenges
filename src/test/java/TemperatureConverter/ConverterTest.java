@@ -14,15 +14,19 @@ public class ConverterTest {
     Values values = new Values();
     Converter converter = new Converter();
 
-    @Test
+    @Test (groups = "web")
+
     public void testFahrenheit() throws IOException {
-        values.initialTemp = 451;
+        System.out.println("temperature web...");
+        values.initialTemp = 551;
         values.typeOfInitialTemp = "Fahrenheit";
         Assert.assertEquals(converter.convertFromFahrenheit(values),232.8);
     }
 
-    @Test
+    @Test (groups = "unit")
+
     public void testCelsius() throws IOException {
+        System.out.println("temperature unit...");
         values.initialTemp = 36.6;
         values.typeOfInitialTemp = "Celsius";
         Assert.assertEquals(converter.convertFromCelsius(values),97.9);

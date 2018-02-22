@@ -20,7 +20,7 @@ public class ConverterTest {
         System.out.println("temperature web...");
         values.initialTemp = 551;
         values.typeOfInitialTemp = "Fahrenheit";
-        Assert.assertEquals(converter.convertFromFahrenheit(values),232.8);
+        Assert.assertEquals(converter.convertFtoK(values),561.4833333333333);
     }
 
     @Test (groups = "unit")
@@ -29,6 +29,6 @@ public class ConverterTest {
         System.out.println("temperature unit...");
         values.initialTemp = 36.6;
         values.typeOfInitialTemp = "Celsius";
-        Assert.assertEquals(converter.convertFromCelsius(values),97.9);
+        Assert.assertEquals(converter.convertCtoK(values),309.75);
     }
 }

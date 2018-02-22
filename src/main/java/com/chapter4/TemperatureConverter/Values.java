@@ -6,8 +6,11 @@ package com.chapter4.TemperatureConverter;
 
 public class Values {
     public double initialTemp;
-    public double convertedTemp;
-    public String choice;
+    public double finalTemp;
+    public double inKelvinTemp;
+    public String initialTempChoice;
+    public String finalTempChoice;
     public String typeOfInitialTemp;
     public String typeOfConvertedTemp;
+
 }

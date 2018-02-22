@@ -11,6 +11,7 @@
     <classes>
       <class name="TemperatureConverter.ConverterTest">
         <methods>
+          <include name="testCelsius"/>
           <include name="testFahrenheit"/>
         </methods>
       </class> <!-- TemperatureConverter.ConverterTest -->

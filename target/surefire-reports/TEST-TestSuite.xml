@@ -1,73 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="1.029" tests="6" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="0.461" tests="6" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
     <property name="file.encoding.pkg" value="sun.io"/>
     <property name="java.specification.version" value="1.8"/>
-    <property name="sun.cpu.isalist" value=""/>
-    <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/home/vvv/Документы/IdeaProjects/57_challenges/target/test-classes:/home/vvv/Документы/IdeaProjects/57_challenges/target/classes:/home/vvv/.m2/repository/org/testng/testng/6.14.2/testng-6.14.2.jar:/home/vvv/.m2/repository/com/beust/jcommander/1.72/jcommander-1.72.jar:/home/vvv/.m2/repository/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar:/home/vvv/.m2/repository/org/apache/maven/surefire/surefire-testng-utils/2.20.1/surefire-testng-utils-2.20.1.jar:/home/vvv/.m2/repository/org/apache/maven/surefire/surefire-grouper/2.20.1/surefire-grouper-2.20.1.jar:"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.class.path" value="C:\Users\User\IdeaProjects\57_Challenges\target\test-classes;C:\Users\User\IdeaProjects\57_Challenges\target\classes;C:\Users\User\.m2\repository\org\testng\testng\6.14.2\testng-6.14.2.jar;C:\Users\User\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;C:\Users\User\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar;C:\Users\User\.m2\repository\org\apache\maven\surefire\surefire-testng-utils\2.20.1\surefire-testng-utils-2.20.1.jar;C:\Users\User\.m2\repository\org\apache\maven\surefire\surefire-grouper\2.20.1\surefire-grouper-2.20.1.jar;"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="user.timezone" value=""/>
     <property name="java.vm.specification.version" value="1.8"/>
-    <property name="os.name" value="Linux"/>
-    <property name="user.country" value="UA"/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
-    <property name="sun.java.command" value="/home/vvv/Документы/IdeaProjects/57_challenges/target/surefire/surefirebooter4770926261052127035.jar /home/vvv/Документы/IdeaProjects/57_challenges/target/surefire 2018-02-21T16-22-07_081-jvmRun1 surefire6272898998996270725tmp surefire_08571994422734264746tmp"/>
-    <property name="surefire.test.class.path" value="/home/vvv/Документы/IdeaProjects/57_challenges/target/test-classes:/home/vvv/Документы/IdeaProjects/57_challenges/target/classes:/home/vvv/.m2/repository/org/testng/testng/6.14.2/testng-6.14.2.jar:/home/vvv/.m2/repository/com/beust/jcommander/1.72/jcommander-1.72.jar:/home/vvv/.m2/repository/org/apache-extras/beanshell/bsh/2.0b6/bsh-2.0b6.jar:/home/vvv/.m2/repository/org/apache/maven/surefire/surefire-testng-utils/2.20.1/surefire-testng-utils-2.20.1.jar:/home/vvv/.m2/repository/org/apache/maven/surefire/surefire-grouper/2.20.1/surefire-grouper-2.20.1.jar:"/>
+    <property name="sun.boot.library.path" value="c:\Progra~1\Java\jdk1.8.0_152\jre\bin"/>
+    <property name="sun.java.command" value="C:\Users\User\AppData\Local\Temp\surefire4644917769925678148\surefirebooter5941961286141816856.jar C:\Users\User\AppData\Local\Temp\surefire4644917769925678148 2018-02-22T17-20-36_964-jvmRun1 surefire5465413647834830151tmp surefire_03851250685171451683tmp"/>
+    <property name="surefire.test.class.path" value="C:\Users\User\IdeaProjects\57_Challenges\target\test-classes;C:\Users\User\IdeaProjects\57_Challenges\target\classes;C:\Users\User\.m2\repository\org\testng\testng\6.14.2\testng-6.14.2.jar;C:\Users\User\.m2\repository\com\beust\jcommander\1.72\jcommander-1.72.jar;C:\Users\User\.m2\repository\org\apache-extras\beanshell\bsh\2.0b6\bsh-2.0b6.jar;C:\Users\User\.m2\repository\org\apache\maven\surefire\surefire-testng-utils\2.20.1\surefire-testng-utils-2.20.1.jar;C:\Users\User\.m2\repository\org\apache\maven\surefire\surefire-grouper\2.20.1\surefire-grouper-2.20.1.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
-    <property name="user.home" value="/home/vvv"/>
-    <property name="user.language" value="ru"/>
+    <property name="user.home" value="C:\Users\User"/>
+    <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.home" value="/usr/lib/jvm/java-8-oracle/jre"/>
-    <property name="basedir" value="/home/vvv/Документы/IdeaProjects/57_challenges"/>
-    <property name="file.separator" value="/"/>
+    <property name="java.home" value="c:\Progra~1\Java\jdk1.8.0_152\jre"/>
+    <property name="basedir" value="C:\Users\User\IdeaProjects\57_Challenges"/>
+    <property name="file.separator" value="\"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/home/vvv/Документы/IdeaProjects/57_challenges/target/surefire/surefirebooter4770926261052127035.jar"/>
-    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\User\AppData\Local\Temp\surefire4644917769925678148\surefirebooter5941961286141816856.jar"/>
+    <property name="sun.boot.class.path" value="c:\Progra~1\Java\jdk1.8.0_152\jre\lib\resources.jar;c:\Progra~1\Java\jdk1.8.0_152\jre\lib\rt.jar;c:\Progra~1\Java\jdk1.8.0_152\jre\lib\sunrsasign.jar;c:\Progra~1\Java\jdk1.8.0_152\jre\lib\jsse.jar;c:\Progra~1\Java\jdk1.8.0_152\jre\lib\jce.jar;c:\Progra~1\Java\jdk1.8.0_152\jre\lib\charsets.jar;c:\Progra~1\Java\jdk1.8.0_152\jre\lib\jfr.jar;c:\Progra~1\Java\jdk1.8.0_152\jre\classes"/>
+    <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="java.runtime.version" value="1.8.0_161-b12"/>
-    <property name="user.name" value="vvv"/>
-    <property name="path.separator" value=":"/>
-    <property name="os.version" value="4.13.0-32-generic"/>
-    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
+    <property name="java.runtime.version" value="1.8.0_152-b16"/>
+    <property name="user.name" value="User"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="6.1"/>
+    <property name="java.endorsed.dirs" value="c:\Progra~1\Java\jdk1.8.0_152\jre\lib\endorsed"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="file.encoding" value="UTF-8"/>
+    <property name="file.encoding" value="Cp1251"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="localRepository" value="/home/vvv/.m2/repository"/>
+    <property name="localRepository" value="C:\Users\User\.m2\repository"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
-    <property name="java.io.tmpdir" value="/tmp"/>
-    <property name="java.version" value="1.8.0_161"/>
-    <property name="user.dir" value="/home/vvv/Документы/IdeaProjects/57_challenges"/>
+    <property name="java.io.tmpdir" value="C:\Users\User\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2017.2.6"/>
+    <property name="java.version" value="1.8.0_152"/>
+    <property name="user.dir" value="C:\Users\User\IdeaProjects\57_Challenges"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob"/>
-    <property name="sun.os.patch.level" value="unknown"/>
-    <property name="java.library.path" value="/home/vvv/Документы/idea-IU-172.4574.11/bin::/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.library.path" value="c:\Progra~1\Java\jdk1.8.0_152\jre\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;c:\Progra~1\Java\jdk1.8.0_152\bin;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\2.0\bin\x64;c:\PROGRAMS\apache-maven-3.5.2\bin;C:\Users\User\AppData\Local\GitHubDesktop\bin;."/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.version" value="25.161-b12"/>
-    <property name="java.ext.dirs" value="/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext"/>
+    <property name="java.vm.version" value="25.152-b16"/>
+    <property name="java.ext.dirs" value="c:\Progra~1\Java\jdk1.8.0_152\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="testWeightCalculation" classname="BodyMassIndex.BMITest" time="0.013"/>
+  <testcase name="testWeightCalculation" classname="BodyMassIndex.BMITest" time="0.008"/>
   <testcase name="testWeightCalculation2" classname="BodyMassIndex.BMITest" time="0"/>
-  <testcase name="isUniqueLoginTestExisting" classname="PasswordValidation.SignUpTest" time="0.021"/>
-  <testcase name="isUniqueLoginTestNotExisting" classname="PasswordValidation.SignUpTest" time="0.001"/>
-  <testcase name="testCelsius" classname="TemperatureConverter.ConverterTest" time="0.001"/>
-  <testcase name="testFahrenheit" classname="TemperatureConverter.ConverterTest" time="0.017">
-    <failure message="expected [232.8] but found [288.4]" type="java.lang.AssertionError">java.lang.AssertionError: expected [232.8] but found [288.4]
-	at TemperatureConverter.ConverterTest.testFahrenheit(ConverterTest.java:23)
-</failure>
-    <system-out><![CDATA[temperature web...
-The temperature in Celsius is 288.4
-]]></system-out>
-  </testcase>
+  <testcase name="isUniqueLoginTestExisting" classname="PasswordValidation.SignUpTest" time="0.003"/>
+  <testcase name="isUniqueLoginTestNotExisting" classname="PasswordValidation.SignUpTest" time="0"/>
+  <testcase name="testCelsius" classname="TemperatureConverter.ConverterTest" time="0"/>
+  <testcase name="testFahrenheit" classname="TemperatureConverter.ConverterTest" time="0"/>
 </testsuite>

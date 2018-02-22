@@ -8,36 +8,41 @@ import com.utils.ConsoleInputsReceiver;
 
 public class ValuesReceiver {
 
-    private String promptChoise = "Press C to convert from Fahrenheit to Celsius\n" +
-            "Press F to convert from Celsius to Fahrenheit\n" +
+    private String promptInitialChoice = "Press C to convert from Celsius\n" +
+            "Press F to convert from Fahrenheit\n" +
+            "Press K to convert from Kelvin\n" +
             "Your choice: " ;
-    private String promptTemperature = "Please enter the temperature in ";
+    private String promptFinalChoice = "Press C to convert to Celsius\n" +
+            "Press F to convert to Fahrenheit\n" +
+            "Press K to convert to Kelvin\n" +
+            "Your choice: " ;
+
+    private String promptTemperature = "Please enter initial temperature";
 
     private ConsoleInputsReceiver console = new ConsoleInputsReceiver();
     private Converter converter = new Converter();
     private Values values = new Values();
+    private ChoiceChecker checker = new ChoiceChecker();
 
     public void promptValues(){
-        System.out.println(promptChoise);
-        values.choice = console.insistOnEnglish().toLowerCase();
 
-        if(values.choice.equals("c")){
-
-            values.typeOfInitialTemp = "Celsius";
-            System.out.println(promptTemperature + values.typeOfInitialTemp);
-            values.initialTemp = console.insistOnDoubleInput();
-            converter.convertFromCelsius(values);
-
-        } else if (values.choice.equals("f")){
-
-            values.typeOfInitialTemp = "Fahrenheit";
-            System.out.println(promptTemperature + values.typeOfInitialTemp);
-            values.initialTemp = console.insistOnDoubleInput();
-            converter.convertFromFahrenheit(values);
-
-        } else {
-            System.out.println("incorrect!");
-            promptValues();
+        while (true) {
+            System.out.println(promptInitialChoice);
+            values.initialTempChoice = console.insistOnEnglish().toLowerCase();
+            if (checker.checkChoice(values.initialTempChoice)){
+                break;
+            }
         }
+
+        while (true) {
+            System.out.println(promptFinalChoice);
+            values.finalTempChoice = console.insistOnEnglish().toLowerCase();
+            if (checker.checkChoice(values.finalTempChoice)){
+                break;
+            }
+        }
+        System.out.println(promptTemperature);
+        values.initialTemp = console.insistOnDoubleInput();
+        converter.initialTempDigest(values);
     }
 }

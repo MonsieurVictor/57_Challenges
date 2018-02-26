@@ -1,5 +1,9 @@
 package com.chapter4.arrayRotation90Degrees;
 
+/**
+ *  is responsible for visualizing array
+ **/
+
 public class ArrayVisualizer {
     public void visualizeArrays(ArrayProperties array){
 

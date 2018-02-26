@@ -1,6 +1,8 @@
 package com.chapter4.arrayRotation90Degrees;
 
-import java.math.BigDecimal;
+/**
+ *  is responsible for initializing array
+ **/
 
 public class ArrayInitializer {
 
@@ -10,6 +12,7 @@ public class ArrayInitializer {
 
         initialArray = receiver.receiveArrayProperties(initialArray);
         initialArray.array = new int[initialArray.rows][initialArray.collumns];
+        System.out.println("\nInitial Array");
 
         for (int i = 0; i<initialArray.rows; i++) {
             for (int j = 0; j < initialArray.collumns; j++) {

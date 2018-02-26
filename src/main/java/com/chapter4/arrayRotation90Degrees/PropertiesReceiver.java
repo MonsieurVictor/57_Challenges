@@ -1,5 +1,9 @@
 package com.chapter4.arrayRotation90Degrees;
 
+/**
+ *  is responsible for receiving array properties from keyboard
+ **/
+
 import com.utils.ConsoleInputsReceiver;
 
 public class PropertiesReceiver {

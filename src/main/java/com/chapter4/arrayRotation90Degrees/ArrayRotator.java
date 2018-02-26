@@ -1,5 +1,9 @@
 package com.chapter4.arrayRotation90Degrees;
 
+/**
+ *  is responsible for rotating array
+ **/
+
 public class ArrayRotator {
 
     private ArrayProperties finalArray = new ArrayProperties();
@@ -9,6 +13,7 @@ public class ArrayRotator {
         finalArray.rows = initialArray.array[0].length;
         finalArray.collumns = initialArray.array.length;
         finalArray.array = new int[finalArray.rows][finalArray.collumns];
+        System.out.println("Final Array");
 
         for (int i = 0; i<finalArray.rows; i++) {
             for (int j = 0; j < finalArray.collumns; j++) {

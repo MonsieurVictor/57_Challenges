@@ -17,7 +17,7 @@ public class PaintCalc {
 
         for (; ; ) {
             System.out.print("Is the room rectangle, circle or L-shaped? \n" +
-                    " Type \"r\" , \"c\" or \"l\" and press \"Enter\" ");
+                    " Type \"r\" , \"arrayRotation90Degrees\" or \"l\" and press \"Enter\" ");
             Scanner sc = new Scanner(System.in);
             shape = sc.nextLine();
             if (shape.equals("r")) {
@@ -25,7 +25,7 @@ public class PaintCalc {
                 PaintCalcRectangle squareRoom = new PaintCalcRectangle();
                 area = squareRoom.areaCalculation();
                 break;
-            } else if (shape.equals("c")) {
+            } else if (shape.equals("arrayRotation90Degrees")) {
                 shape = "a circle";
                 PaintCalcCircle RoundRoom = new PaintCalcCircle();
                 area = RoundRoom.areaCalculation();

@@ -8,84 +8,84 @@ import java.math.BigDecimal;
 
 public class Converter {
 
-    public void initialTempDigest (Values values) {
+    public void initialTempDigest (TemperatureValues temperatureValues) {
 
-        if (values.initialTempChoice.equals("c")) {
-            values.typeOfInitialTemp = "Celsius";
-            values.inKelvinTemp = convertCtoK(values);
+        if (temperatureValues.initialTempChoice.equals("arrayRotation90Degrees")) {
+            temperatureValues.typeOfInitialTemp = "Celsius";
+            temperatureValues.inKelvinTemp = convertCtoK(temperatureValues);
 
-        } else if (values.initialTempChoice.equals("f")) {
-            values.typeOfInitialTemp = "Fahrenheit";
-            values.inKelvinTemp = convertFtoK(values);
+        } else if (temperatureValues.initialTempChoice.equals("f")) {
+            temperatureValues.typeOfInitialTemp = "Fahrenheit";
+            temperatureValues.inKelvinTemp = convertFtoK(temperatureValues);
 
-        } else if (values.initialTempChoice.equals("k")) {
-            values.typeOfInitialTemp = "Kelvin";
-            values.inKelvinTemp = convertKtoK(values);
-
-        } else {
-            System.out.println("incorrect!");
-        }
-        finalTempDigest(values);
-    }
-
-    public void finalTempDigest (Values values) {
-
-        if (values.finalTempChoice.equals("c")) {
-            values.typeOfConvertedTemp = "Celsius";
-            values.finalTemp = convertToC(values);
-
-        } else if (values.finalTempChoice.equals("f")) {
-            values.typeOfConvertedTemp = "Fahrenheit";
-            values.finalTemp = convertToF(values);
-
-        } else if (values.finalTempChoice.equals("k")) {
-            values.typeOfConvertedTemp = "Kelvin";
-            values.finalTemp = convertToK(values);
+        } else if (temperatureValues.initialTempChoice.equals("k")) {
+            temperatureValues.typeOfInitialTemp = "Kelvin";
+            temperatureValues.inKelvinTemp = convertKtoK(temperatureValues);
 
         } else {
             System.out.println("incorrect!");
         }
-        finalAnswer(values);
+        finalTempDigest(temperatureValues);
     }
 
-    public double convertCtoK(Values values){
-        return values.initialTemp + 273.15;
+    public void finalTempDigest (TemperatureValues temperatureValues) {
+
+        if (temperatureValues.finalTempChoice.equals("arrayRotation90Degrees")) {
+            temperatureValues.typeOfConvertedTemp = "Celsius";
+            temperatureValues.finalTemp = convertToC(temperatureValues);
+
+        } else if (temperatureValues.finalTempChoice.equals("f")) {
+            temperatureValues.typeOfConvertedTemp = "Fahrenheit";
+            temperatureValues.finalTemp = convertToF(temperatureValues);
+
+        } else if (temperatureValues.finalTempChoice.equals("k")) {
+            temperatureValues.typeOfConvertedTemp = "Kelvin";
+            temperatureValues.finalTemp = convertToK(temperatureValues);
+
+        } else {
+            System.out.println("incorrect!");
+        }
+        finalAnswer(temperatureValues);
     }
 
-    public double convertFtoK(Values values){
-        return (values.initialTemp + 459.67) / 1.8;
+    public double convertCtoK(TemperatureValues temperatureValues){
+        return temperatureValues.initialTemp + 273.15;
     }
 
-    public double convertKtoK(Values values){
-        return values.initialTemp;
+    public double convertFtoK(TemperatureValues temperatureValues){
+        return (temperatureValues.initialTemp + 459.67) / 1.8;
+    }
+
+    public double convertKtoK(TemperatureValues temperatureValues){
+        return temperatureValues.initialTemp;
     }
 
 
-    public double convertToC(Values values){
-        return values.inKelvinTemp - 273.15;
+    public double convertToC(TemperatureValues temperatureValues){
+        return temperatureValues.inKelvinTemp - 273.15;
     }
 
-    public double convertToF(Values values){
-        return values.inKelvinTemp * 1.8 - 459.67;
+    public double convertToF(TemperatureValues temperatureValues){
+        return temperatureValues.inKelvinTemp * 1.8 - 459.67;
     }
 
-    public double convertToK(Values values){
-        return values.inKelvinTemp;
+    public double convertToK(TemperatureValues temperatureValues){
+        return temperatureValues.inKelvinTemp;
     }
 
-    public void finalAnswer(Values values){
-        values.finalTemp = BigDecimal.valueOf(values.finalTemp)
+    public void finalAnswer(TemperatureValues temperatureValues){
+        temperatureValues.finalTemp = BigDecimal.valueOf(temperatureValues.finalTemp)
                 .setScale(2, BigDecimal.ROUND_CEILING)
                 .doubleValue();
 
-        values.inKelvinTemp = BigDecimal.valueOf(values.inKelvinTemp)
+        temperatureValues.inKelvinTemp = BigDecimal.valueOf(temperatureValues.inKelvinTemp)
                 .setScale(2, BigDecimal.ROUND_CEILING)
                 .doubleValue();
 
         System.out.println("The temperature in " +
-                values.typeOfInitialTemp + " is " + values.initialTemp);
-        System.out.println("The temperature equivalent in Kelvin is " + values.inKelvinTemp);
+                temperatureValues.typeOfInitialTemp + " is " + temperatureValues.initialTemp);
+        System.out.println("The temperature equivalent in Kelvin is " + temperatureValues.inKelvinTemp);
         System.out.println("The temperature in " +
-                values.typeOfConvertedTemp + " is " + values.finalTemp);
+                temperatureValues.typeOfConvertedTemp + " is " + temperatureValues.finalTemp);
     }
 }

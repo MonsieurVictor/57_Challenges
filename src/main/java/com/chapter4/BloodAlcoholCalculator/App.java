@@ -21,7 +21,7 @@ public class App {
     }
 
     public static void main (String[] args) throws IOException, AWTException, InterruptedException {
-        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        new ProcessBuilder("cmd", "/arrayRotation90Degrees", "cls").inheritIO().start().waitFor();
 
         App app = new App();
         app.start();

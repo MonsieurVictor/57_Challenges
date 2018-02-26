@@ -15,7 +15,7 @@ public class App {
     ConsoleInputsReceiver receiver = new ConsoleInputsReceiver();
     String appInputDesc = "Would you like to calculate the compound interest\n" +
         " or the initial amount you’d need to invest to reach a specific goal?\n" +
-        " Type \"c\" or \"g\" and press Enter!";
+        " Type \"arrayRotation90Degrees\" or \"g\" and press Enter!";
 
 
     public void start() {
@@ -25,7 +25,7 @@ public class App {
 
         while (true) {
             String purpose = this.receiver.getLastInput();
-            if (purpose.equals("c")) {
+            if (purpose.equals("arrayRotation90Degrees")) {
                 FinalAmountOutput finalAmount = new FinalAmountOutput();
                 finalAmount.finalAmountOutput();
                 break;

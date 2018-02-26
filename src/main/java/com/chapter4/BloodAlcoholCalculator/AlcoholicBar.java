@@ -49,7 +49,7 @@ public class AlcoholicBar {
 
 //            click(75,700);
             Thread.sleep(500);
-            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            new ProcessBuilder("cmd", "/arrayRotation90Degrees", "cls").inheritIO().start().waitFor();
             System.out.println(welcomeMsg);
             System.out.println("You have already drunk " + drunkAlcohol.alcoDigesting.totalAlcoholDrunk +
                     " grams of pure alcohol.");

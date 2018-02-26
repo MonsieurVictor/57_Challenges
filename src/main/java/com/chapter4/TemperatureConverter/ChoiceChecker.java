@@ -4,7 +4,7 @@ public class ChoiceChecker {
 
     public boolean checkChoice(String choice) {
 
-        if (choice.equals("c")) {
+        if (choice.equals("arrayRotation90Degrees")) {
             return true;
 
         } else if (choice.equals("f")) {

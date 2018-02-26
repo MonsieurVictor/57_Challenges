@@ -3,7 +3,7 @@ package com.chapter4.TemperatureConverter;
 import com.utils.ConsoleInputsReceiver;
 
 /**
- *  is responsible for receiving values from a console
+ *  is responsible for receiving temperatureValues from a console
  **/
 
 public class ValuesReceiver {
@@ -21,28 +21,28 @@ public class ValuesReceiver {
 
     private ConsoleInputsReceiver console = new ConsoleInputsReceiver();
     private Converter converter = new Converter();
-    private Values values = new Values();
+    private TemperatureValues temperatureValues = new TemperatureValues();
     private ChoiceChecker checker = new ChoiceChecker();
 
     public void promptValues(){
 
         while (true) {
             System.out.println(promptInitialChoice);
-            values.initialTempChoice = console.insistOnEnglish().toLowerCase();
-            if (checker.checkChoice(values.initialTempChoice)){
+            temperatureValues.initialTempChoice = console.insistOnEnglish().toLowerCase();
+            if (checker.checkChoice(temperatureValues.initialTempChoice)){
                 break;
             }
         }
 
         while (true) {
             System.out.println(promptFinalChoice);
-            values.finalTempChoice = console.insistOnEnglish().toLowerCase();
-            if (checker.checkChoice(values.finalTempChoice)){
+            temperatureValues.finalTempChoice = console.insistOnEnglish().toLowerCase();
+            if (checker.checkChoice(temperatureValues.finalTempChoice)){
                 break;
             }
         }
         System.out.println(promptTemperature);
-        values.initialTemp = console.insistOnDoubleInput();
-        converter.initialTempDigest(values);
+        temperatureValues.initialTemp = console.insistOnDoubleInput();
+        converter.initialTempDigest(temperatureValues);
     }
 }

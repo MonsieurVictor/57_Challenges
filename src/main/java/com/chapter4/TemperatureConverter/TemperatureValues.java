@@ -4,7 +4,7 @@ package com.chapter4.TemperatureConverter;
  *  is responsible for keeping values
  **/
 
-public class Values {
+public class TemperatureValues {
     public double initialTemp;
     public double finalTemp;
     public double inKelvinTemp;

@@ -5,17 +5,14 @@ import com.chapter4.tempConverterInterface.converterImplementation.FahrenheitToC
 
 public class ConverterFactory {
 
-    public static enum ConverterTypes {
-        CF, FC
-    }
-
-    public static ConverterInterface getInstance(ConverterModel model) {
-        if (model.converterName == "CF") {
-            return new CelsiusToFahrenheit(model.initValue);
-        } else if(model.converterName == "FC") {
-            return new FahrenheitToCelsius(model.initValue);
+    public static ConverterInterface getInstance(TemperatureMeasurementModel model) {
+        ConverterInterface converter = null;
+        if (model.converterName.equals("CF")) {
+            converter = new CelsiusToFahrenheit(model.initValue);
+        } else if(model.converterName.equals("FC")) {
+            converter = new FahrenheitToCelsius(model.initValue);
         }
-        return null;
+        return converter;
     }
 
 }

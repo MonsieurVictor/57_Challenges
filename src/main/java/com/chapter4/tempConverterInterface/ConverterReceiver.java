@@ -10,9 +10,9 @@ public class ConverterReceiver {
     private List<String> converters = Arrays.asList("CF", "CK", "FC", "FK", "KC", "KF");
     private  String INIT_MESSAGE = "print converter name (" + converters.toString() + "):";
     private ConsoleInputsReceiver console = new ConsoleInputsReceiver();
-    private ConverterModel model = new ConverterModel();
+    private TemperatureMeasurementModel model = new TemperatureMeasurementModel();
 
-    public ConverterModel getAppData() {
+    public TemperatureMeasurementModel getAppData() {
         getConverterName();
         getInitTemperature();
         return model;

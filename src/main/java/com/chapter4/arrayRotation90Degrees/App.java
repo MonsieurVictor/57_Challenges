@@ -37,7 +37,7 @@ public class App {
         int [][] result = new int[cols][rows];
 
         for (int i = 0; i < rows * cols; i++) {
-            result[i % cols][i / cols] = arr[i / cols][i % cols];
+            result[i % cols][i / cols] = arr[(rows - 1) - i / cols][i % cols];
         }
         return result;
     }

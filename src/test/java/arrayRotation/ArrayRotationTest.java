@@ -13,6 +13,7 @@ public class ArrayRotationTest {
         int [][] arr = {
                 {0, 1, 2}, // M = 2
                 {3, 4, 5}, // N = 3
+                {6, 7, 8}, // N = 3
         };
         tv.visualizeArrays(arr);
 

@@ -1,10 +1,10 @@
 package TemperatureConverter;
 
 
-import com.chapter4.TemperatureConverter.TemperatureValues;
+import com.chapter4.temperatureConverter.TemperatureValues;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.chapter4.TemperatureConverter.Converter;
+import com.chapter4.temperatureConverter.Converter;
 
 
 import java.io.IOException;

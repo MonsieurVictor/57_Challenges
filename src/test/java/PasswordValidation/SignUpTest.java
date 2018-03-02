@@ -1,6 +1,6 @@
 package PasswordValidation;
 
-import com.chapter4.PasswordValidationFile.SignUpper;
+import com.chapter4.passwordValidationFile.SignUpper;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

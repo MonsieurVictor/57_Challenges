@@ -1,15 +1,27 @@
 package BodyMassIndex;
 
-import com.chapter4.BodyMassIndex.HumanProperties;
-import com.chapter4.BodyMassIndex.BMICalculator;
+import com.chapter4.bodyMassIndex.HumanProperties;
+import com.chapter4.bodyMassIndex.BMICalculator;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+
 
 
 public class BMITest {
 
-    HumanProperties human = new HumanProperties();
-    BMICalculator calculator = new BMICalculator();
+    HumanProperties human;
+    BMICalculator calculator;
+
+    @BeforeMethod
+    public void beforeMethod() {
+        System.out.println("BeforeMethod creating objects");
+        human = new HumanProperties();
+        calculator = new BMICalculator();
+    }
+
+
 
     @Test (groups = "unit")
     public void testWeightCalculation(){

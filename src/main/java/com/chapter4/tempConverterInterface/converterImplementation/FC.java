@@ -1,7 +1,5 @@
 package com.chapter4.tempConverterInterface.converterImplementation;
 
-import com.chapter4.tempConverterInterface.ConverterInterface;
-
 public class FC {
 
     private double sourceTemperatureValue;

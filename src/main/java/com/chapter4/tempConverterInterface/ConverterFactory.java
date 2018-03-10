@@ -1,11 +1,11 @@
 package com.chapter4.tempConverterInterface;
 
 import com.chapter4.tempConverterInterface.converterImplementation.CelsiusToFahrenheit;
+import com.chapter4.tempConverterInterface.converterImplementation.ConverterInterface;
 import com.chapter4.tempConverterInterface.converterImplementation.FahrenheitToCelsius;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 public class ConverterFactory {
 
@@ -15,9 +15,26 @@ public class ConverterFactory {
         ConverterInterface converter = null;
         String converterPath = "com.chapter4.tempConverterInterface.converterImplementation." + model.converterName;
         try {
-            Object object = Class.forName(converterPath).newInstance();
-            Method method = object.getClass().getMethod("calculate");
-            method.invoke(object);
+            Class<?> clazzz = Class.forName(converterPath);
+            Constructor<?> constructor = clazzz.getConstructor(double.class);
+            ConverterInterface instance = (ConverterInterface) constructor.newInstance(model.initValue);
+            System.out.println("is instance of = " + (instance instanceof ConverterInterface));
+            //((ConverterInterface) instance).calculate(model.initValue);
+            //double result = ((ConverterInterface) instance).getTargetTemperature();
+            //System.out.println("result = " + result);
+            //converter = (ConverterInterface) instance;
+            //converter.calculate(model.initValue);
+            //System.out.println("result = " + converter.getTargetTemperature());
+            /*
+            Class<?> clazz = Class.forName("com.foo.MyClass");
+            Constructor<?> constructor = clazz.getConstructor(String.class, Integer.class);
+            Object instance = constructor.newInstance("stringparam", 42);
+            */
+
+            //Object object = Class.forName(converterPath).newInstance(model.initValue);
+            //Method method = object.getClass().getMethod("calculate");
+            //method.invoke(object);
+
         } catch (InstantiationException | IllegalAccessException
                 | ClassNotFoundException e) {
             e.printStackTrace();

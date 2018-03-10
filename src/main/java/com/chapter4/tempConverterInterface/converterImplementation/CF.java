@@ -1,8 +1,6 @@
 package com.chapter4.tempConverterInterface.converterImplementation;
 
-import com.chapter4.tempConverterInterface.ConverterInterface;
-
-public class CF {
+public class CF implements ConverterInterface {
     public double sourceTemperatureValue;
     public double targetTemperatureValue;
 

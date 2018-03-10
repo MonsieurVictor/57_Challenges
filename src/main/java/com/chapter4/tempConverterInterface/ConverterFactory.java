@@ -9,7 +9,9 @@ import java.lang.reflect.Method;
 
 public class ConverterFactory {
 
-    public static ConverterInterface getInstance(TemperatureMeasurementModel model) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public static ConverterInterface getInstance(TemperatureMeasurementModel model)
+            throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException
+    {
         ConverterInterface converter = null;
         String converterPath = "com.chapter4.tempConverterInterface.converterImplementation." + model.converterName;
         try {
@@ -21,7 +23,7 @@ public class ConverterFactory {
             e.printStackTrace();
         }
 
-//        Constructor<?> constructor = clazz.getConstructor(String.class, Integer.class);
+        //Constructor<?> constructor = clazz.getConstructor(String.class, Integer.class);
 //        Object object =  constructor.newInstance("stringparam", 42);
         System.out.println("Methods");
 //        Method method = object.getClass().getMethod("calculate");

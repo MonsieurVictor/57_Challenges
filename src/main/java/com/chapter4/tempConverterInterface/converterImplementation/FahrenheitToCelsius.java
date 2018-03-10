@@ -18,4 +18,8 @@ public class FahrenheitToCelsius implements ConverterInterface {
     public double getTargetTemperature() {
         return this.targetTemperatureValue;
     }
+
+    public void calculate(double temp) {
+
+    }
 }

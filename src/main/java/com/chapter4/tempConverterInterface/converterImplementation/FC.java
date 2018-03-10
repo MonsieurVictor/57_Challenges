@@ -2,20 +2,21 @@ package com.chapter4.tempConverterInterface.converterImplementation;
 
 import com.chapter4.tempConverterInterface.ConverterInterface;
 
-public class CelsiusToFahrenheit implements ConverterInterface {
+public class FC {
 
-    public double sourceTemperatureValue;
-    public double targetTemperatureValue;
+    private double sourceTemperatureValue;
+    private double targetTemperatureValue;
 
-    public CelsiusToFahrenheit(double initValue) {
+    public FC(double initValue) {
         this.sourceTemperatureValue = initValue;
     }
 
     public void calculate(double sourceTemperatureValue) {
-        this.targetTemperatureValue = sourceTemperatureValue * 1.8 + 32;
+        this.targetTemperatureValue = (this.sourceTemperatureValue - 32 ) /1.8;
     }
 
     public double getTargetTemperature() {
         return this.targetTemperatureValue;
     }
 }
+

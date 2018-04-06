@@ -61,7 +61,7 @@ public class AreaOfRoom {
             areaConverted = area * constant;
         }
         else {
-                        areaConverted = area / constant;
+            areaConverted = area / constant;
         }
         BigDecimal roundArea = BigDecimal.valueOf(areaConverted);
         roundArea = roundArea.setScale(3, BigDecimal.ROUND_HALF_UP);

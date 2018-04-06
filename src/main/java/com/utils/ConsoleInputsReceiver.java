@@ -105,6 +105,4 @@ public class ConsoleInputsReceiver {
         }
         return inputStr;
     }
-
-
 }

@@ -31,7 +31,7 @@ public class SmallestWindowInTheString {
     private static int start = 0;
     private static int startIndex = -1;
     private static int minLength = Integer.MAX_VALUE;
-    private static int count = 0;  // count of characters
+    private static int countOfMatchedChars = 0;  // count of characters from pattern
 
     private static void storeOccurrenceOfCharsOfPattern(){
         for (int i = 0; i < patLength; i++)
@@ -69,12 +69,12 @@ public class SmallestWindowInTheString {
             hashStr[str.charAt(j)]++;
 
             // If string's char matches with pattern's char
-            // then increment count
+            // then increment countOfMatchedChars
             if (hashPat[str.charAt(j)] != 0 && hashStr[str.charAt(j)] <= hashPat[str.charAt(j)] )
-                count++;
+                countOfMatchedChars++;
 
             // if all the characters are matched
-            if (count == patLength) {
+            if (countOfMatchedChars == patLength) {
                 // Try to minimize the window i.e., check if
                 // any character is occurring more no. of times
                 // than its occurrence in pattern, if yes

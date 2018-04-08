@@ -36,9 +36,9 @@ import java.util.Scanner;
 
     public class EncryptTheString {
 
-    private static void convertStrings(ArrayList list, int numberOfTests) {
+    private static void convertStrings(ArrayList list) {
 
-        for (int i = 0; i < numberOfTests; i++) {
+        for (int i = 0; i < list.size(); i++) {
 
             System.out.println(reverseString(encryptString((String) list.get(i))));
         }
@@ -58,25 +58,26 @@ import java.util.Scanner;
         return new StringBuffer(s3).reverse();
     }
 
-    private static String encryptString(String rawStr) {
-        String encryptedStr = "";
+    private static String encryptString(String source) {
+        String result = "";
         int charCount = 1;
 
-        for (int i = 0; i < rawStr.length(); i++) {
-            if (i == rawStr.length() - 1) {
-                encryptedStr += String.valueOf(rawStr.charAt(i)) + charCount;
+        for (int i = 0; i < source.length(); i++) {
+            char currentChar = source.charAt(i);
+            if (i == source.length() - 1) {
+                result += String.valueOf(currentChar) + charCount;
                 break;
             }
 
-            if (rawStr.charAt(i) == (rawStr.charAt(i + 1))) {
+            if (currentChar == (source.charAt(i + 1))) {
                 charCount++;
 
             } else {
-                encryptedStr += String.valueOf(rawStr.charAt(i)) + charCount;
+                result += String.valueOf(currentChar) + charCount;
                 charCount = 1;
             }
         }
-        return encryptedStr;
+        return result;
     }
 
     private static String receiveString() {
@@ -110,6 +111,6 @@ import java.util.Scanner;
     public static void main(String[] args) {
 
         int numberOfTests = receiveNumberOfTests();
-        convertStrings(collectStringsToList(numberOfTests), numberOfTests);
+        convertStrings(collectStringsToList(numberOfTests));
     }
 }

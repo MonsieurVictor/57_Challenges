@@ -22,7 +22,7 @@ public class Storage {
         this.storage = null; // transformation logic from the MaximumOccurringCharacter class
     }
 
-    public List<Integer> getRaitings() {
+    public List<Integer> getRatings() {
         // iterate through the storage and collect all counts
         return null; // => {4, 1}
     }

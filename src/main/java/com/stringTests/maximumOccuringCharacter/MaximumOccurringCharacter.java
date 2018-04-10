@@ -5,7 +5,13 @@ package com.stringTests.maximumOccuringCharacter;
 
 import javafx.collections.transformation.SortedList;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Collections;
+import java.util.Comparator;
+
 
 public class MaximumOccurringCharacter
 {
@@ -51,7 +57,7 @@ public class MaximumOccurringCharacter
 
     static List<KeyValuePair> getStorage(String str) {
 
-        Map<Character, Integer> frequencyRegister = new HashMap<Character, Integer> ();
+        Map<Character, Integer> frequencyRegister = new HashMap<Character, Integer>();
         for (int i = 0; i < str.length(); i++) {
             Character currentChar = new Character(str.charAt(i));
             if (frequencyRegister.containsKey(currentChar)) {
@@ -71,7 +77,7 @@ public class MaximumOccurringCharacter
         Collections.sort(storage, new Comparator<KeyValuePair>() {
             @Override
             public int compare(KeyValuePair o1, KeyValuePair o2) {
-                return o1.count - o2.count;
+                return o2.count - o1.count;
             }
         });
 
@@ -82,11 +88,11 @@ public class MaximumOccurringCharacter
     // Driver Method
     public static void main(String[] args)
     {
-        String str = "ssss dddd a b";
+        String str = "aaaaghhtttpppppssssss";
         List<KeyValuePair> storage = getStorage(str);
-        System.out.println("Max occurring character is " + storage.get(0));
-        System.out.println("Second Max occurring character is " + storage.get(1));
-        System.out.println("Min occurring character is " + storage.get(storage.size() - 1));
+        System.out.println("Max occurring character is " + storage.get(0).letter);
+        System.out.println("Second Max occurring character is " + storage.get(1).letter);
+        System.out.println("Min occurring character is " + storage.get(storage.size() - 1).letter);
 
     }
 }

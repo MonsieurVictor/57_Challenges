@@ -1,13 +1,19 @@
 package com.stringTests.maximumOccuringCharacter;
 
-import java.util.List;
+import java.util.*;
 
 public class Storage {
 
+
     private class KeyValuePair {
+        char letter;
+        int count;
 
+        KeyValuePair(Character key, Integer value) {
+            this.letter = key;
+            this.count = value;
+        }
     }
-
 
     /**
      * for string "ssss dddd a b"
@@ -16,15 +22,49 @@ public class Storage {
      * letter = a, count = 1;
      * letter = b; count = 1;
      */
-    private List<KeyValuePair> storage;
+    public List<KeyValuePair> keyValuePairs = new ArrayList<KeyValuePair>();
 
     public Storage(String str) {
-        this.storage = null; // transformation logic from the MaximumOccurringCharacter class
+
+        Map<Character, Integer> frequencyRegisterMap = new HashMap<Character, Integer>();
+        for (int i = 0; i < str.length(); i++) {
+            Character currentChar = new Character(str.charAt(i));
+            if (currentChar.equals(' ')) {}                            // для пропуска пробелов !!!
+            else if (frequencyRegisterMap.containsKey(currentChar)) {
+                Integer value = frequencyRegisterMap.get(currentChar);
+                frequencyRegisterMap.replace(currentChar, value = value + 1);
+            } else {
+                frequencyRegisterMap.put(currentChar, 1);
+            }
+        }
+
+        for(Character key : frequencyRegisterMap.keySet()) {
+            keyValuePairs.add(new KeyValuePair(key, frequencyRegisterMap.get(key)));
+        }
+
+        Collections.sort(keyValuePairs, new Comparator<KeyValuePair>() {
+            @Override
+            public int compare(KeyValuePair o1, KeyValuePair o2) {
+                return o2.count - o1.count;
+            }
+        });
     }
 
     public List<Integer> getRatings() {
-        // iterate through the storage and collect all counts
+        // iterate through the keyValuePairs and collect all counts
         return null; // => {4, 1}
+    }
+
+    public char getMaxChar(int index) {
+        return keyValuePairs.get(index).letter;
+    }
+
+    private int getSize(){
+        return keyValuePairs.size();
+    }
+
+    public char getMinChar(){
+        return keyValuePairs.get(getSize()-1).letter;
     }
 
     /**

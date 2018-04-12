@@ -22,14 +22,14 @@ public class Storage {
      * letter = a, count = 1;
      * letter = b; count = 1;
      */
-    public List<KeyValuePair> keyValuePairs = new ArrayList<KeyValuePair>();
+    private List<KeyValuePair> keyValuePairs = new ArrayList<KeyValuePair>();
 
     public Storage(String str) {
 
         Map<Character, Integer> frequencyRegisterMap = new HashMap<Character, Integer>();
         for (int i = 0; i < str.length(); i++) {
-            Character currentChar = new Character(str.charAt(i));
-            if (currentChar.equals(' ')) {}                            // для пропуска пробелов !!!
+            char currentChar = str.charAt(i); // упростил вместо Character currentChar
+            if (currentChar == ' ') {}                            // для пропуска пробелов !!!
             else if (frequencyRegisterMap.containsKey(currentChar)) {
                 Integer value = frequencyRegisterMap.get(currentChar);
                 frequencyRegisterMap.replace(currentChar, value = value + 1);
@@ -48,9 +48,10 @@ public class Storage {
                 return o2.count - o1.count;
             }
         });
+
     }
 
-    public List<Integer> getRatings() {
+    public List<Integer> getFrequencies() {
         // iterate through the keyValuePairs and collect all counts
         return null; // => {4, 1}
     }
@@ -68,14 +69,15 @@ public class Storage {
     }
 
     /**
-     * getByRating(4) => [s, d]
-     * getByRating(1) => [a, b]
-     * getByRating(2) => exception
+     * abssssdddd
+     * getByFrequency(4) => [s, d]
+     * getByFrequency(1) => [a, b]
+     * getByFrequency(2) => exception
      *
-     * @param rating
+     * @param frequency
      * @return
      */
-    public char[] getByRating(int rating) {
+    public char[] getByFrequency(int frequency) {
         return null;
     }
 }

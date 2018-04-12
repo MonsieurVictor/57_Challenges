@@ -28,7 +28,7 @@ public class Storage {
 
         Map<Character, Integer> frequencyRegisterMap = new HashMap<Character, Integer>();
         for (int i = 0; i < str.length(); i++) {
-            char currentChar = str.charAt(i); // упростил вместо Character currentChar
+            char currentChar = str.charAt(i); // упростил вместо Character currentChar = new Character(str.charAt(i))
             if (currentChar == ' ') {}                            // для пропуска пробелов !!!
             else if (frequencyRegisterMap.containsKey(currentChar)) {
                 Integer value = frequencyRegisterMap.get(currentChar);
@@ -52,8 +52,15 @@ public class Storage {
     }
 
     public List<Integer> getFrequencies() {
+        List <Integer> freqList = new ArrayList<Integer>();
+        for (int i = 0; i < keyValuePairs.size(); i++) {
+            int currentValue = keyValuePairs.get(i).count;
+            if (!freqList.contains(keyValuePairs.get(i).count)){
+                freqList.add(keyValuePairs.get(i).count);
+            }
+        }
         // iterate through the keyValuePairs and collect all counts
-        return null; // => {4, 1}
+        return freqList; // => {4, 1}
     }
 
     public char getMaxChar(int index) {
@@ -68,6 +75,9 @@ public class Storage {
         return keyValuePairs.get(getSize()-1).letter;
     }
 
+    public void printFrequencies(){
+        System.out.println(Arrays.toString(getFrequencies().toArray()));
+    }
     /**
      * abssssdddd
      * getByFrequency(4) => [s, d]

@@ -4,7 +4,6 @@ import java.util.*;
 
 public class Storage {
 
-
     private class KeyValuePair {
         char letter;
         int count;
@@ -12,6 +11,16 @@ public class Storage {
         KeyValuePair(Character key, Integer value) {
             this.letter = key;
             this.count = value;
+        }
+    }
+
+    private class KeyRatingPair {
+        char letter;
+        int rating;
+
+        KeyRatingPair(Character key, Integer value) {
+            this.letter = key;
+            this.rating = value;
         }
     }
 
@@ -55,7 +64,7 @@ public class Storage {
         List <Integer> freqList = new ArrayList<Integer>();
         for (int i = 0; i < keyValuePairs.size(); i++) {
             int currentValue = keyValuePairs.get(i).count;
-            if (!freqList.contains(keyValuePairs.get(i).count)){
+            if (!freqList.contains(currentValue)){
                 freqList.add(keyValuePairs.get(i).count);
             }
         }
@@ -75,9 +84,6 @@ public class Storage {
         return keyValuePairs.get(getSize()-1).letter;
     }
 
-    public void printFrequencies(){
-        System.out.println(Arrays.toString(getFrequencies().toArray()));
-    }
     /**
      * abssssdddd
      * getByFrequency(4) => [s, d]
@@ -88,6 +94,77 @@ public class Storage {
      * @return
      */
     public char[] getByFrequency(int frequency) {
-        return null;
+        List <Character> byFreqList = new ArrayList<Character>();
+        for (int i = 0; i < keyValuePairs.size(); i++) {
+            int currentValue = keyValuePairs.get(i).count;
+            if (currentValue == frequency){
+                byFreqList.add(keyValuePairs.get(i).letter);
+            }
+        }
+        char[] byFreqArray = new char[byFreqList.size()];
+        for (int i = 0; i < byFreqList.size(); i++) {
+            byFreqArray[i] = byFreqList.get(i);
+            }
+        return byFreqArray;
+    }
+
+    public String toStringByFreqArray(int frequency){
+        return Arrays.toString(getByFrequency(frequency));
+    }
+
+    public List <KeyRatingPair> getRatings(){
+        List <KeyRatingPair> ratingList = new ArrayList<KeyRatingPair>();
+        int rating = 0;
+        for (int i = 0; i < keyValuePairs.size(); i++) {
+
+            char letter = this.keyValuePairs.get(i).letter;
+
+            if (i == 0){
+                ratingList.add(new KeyRatingPair(letter, rating));
+
+            } else if (keyValuePairs.get(i).count == keyValuePairs.get(i-1).count){
+                ratingList.add(new KeyRatingPair(letter, rating));
+
+            } else {
+                rating = rating + 1;
+                ratingList.add(new KeyRatingPair(letter, rating));
+            }
+        }
+        // iterate through the keyValuePairs and collect all counts
+        return ratingList; // => {4, 1}
+    }
+
+    public void printAllRatings(){ //откуда взялись переводы строк???
+        List <KeyRatingPair> ratingList = getRatings();
+
+        for (int i = 0; i < ratingList.size(); i++ ) {
+
+            if (i == 0) {
+                System.out.print("Rating: " + ratingList.get(i).rating + " Character: " + ratingList.get(i).letter);
+
+            } else if (ratingList.get(i).rating == ratingList.get(i - 1).rating){
+                System.out.print(", " + ratingList.get(i).letter);
+
+            } else
+                System.out.print("\n" + "Rating: " + ratingList.get(i).rating + " Character: " + ratingList.get(i).letter);
+        }
+    }
+
+    public void printByRating(int chosenRating){
+        List <KeyRatingPair> ratingList = getRatings();
+        System.out.print("\nCharacter with rating '" + chosenRating + "' : [");
+        int counter = 0;
+
+        for (int i = 0; i < ratingList.size(); i++) {
+
+            if (chosenRating == ratingList.get(i).rating) {
+                if (counter != 0) {
+                    System.out.print(", ");
+                }
+                System.out.print(ratingList.get(i).letter );
+                counter++;
+            }
+        }
+        System.out.print("]");
     }
 }

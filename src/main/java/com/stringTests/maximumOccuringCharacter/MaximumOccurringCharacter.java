@@ -1,7 +1,7 @@
 package com.stringTests.maximumOccuringCharacter;
 
 // Java program to output the maximum occurring character
-// in a string
+// in a string, find by rating and by frequency
 
 public class MaximumOccurringCharacter
 {

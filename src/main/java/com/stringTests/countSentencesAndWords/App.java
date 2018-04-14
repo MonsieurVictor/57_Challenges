@@ -5,25 +5,25 @@ package com.stringTests.countSentencesAndWords;
 
 import com.utils.ConsoleInputsReceiver;
 
+import java.io.IOException;
+
 public class App {
 
-    String text = "";
+    private Driver driver = new Driver();
+    private ConsoleInputsReceiver console = new ConsoleInputsReceiver();
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         App app = new App();
         app.start();
     }
-    private void start() {           //почему static не требует??
+    private void start() throws IOException {           //почему static не требует??
 
-        Storage storage = new Storage(text);
-        Driver driver = new Driver(storage.getText());
-        ConsoleInputsReceiver console = new ConsoleInputsReceiver();
-        System.out.println("Sentences count:" + driver.countSentences());
-        System.out.println("The list of words and their frequency is:\n" + driver.getFrequencies() );
+        System.out.println("Sentences count: " + driver.countSentences());
+        System.out.println("The list of words and their frequency is:");
+        driver.getFrequencies();
         System.out.println("Enter the required frequency:");
         int frequency = console.insistOnIntegerPositiveInput();
-        System.out.println("A word(s) with frequency: " + getByFrequency(frequency));
-
+        System.out.println("A word(s) with frequency '" + frequency + "' : " + driver.getByFrequency(frequency));
 
     }
 }

@@ -65,12 +65,7 @@ public class Driver {
             wordCountPairs.add(new WordCountPair(key, frequencyRegisterMap.get(key)));
         }
 
-        Collections.sort(wordCountPairs, new Comparator<WordCountPair>() {
-            @Override
-            public int compare(WordCountPair o1, WordCountPair o2) {
-                return o2.count - o1.count;
-            }
-        });
+        Collections.sort(wordCountPairs, (o1, o2) -> o2.count - o1.count);
 
         for (int i = 0; i < wordCountPairs.size(); i++) {
             System.out.println(wordCountPairs.get(i).word +" : " +  wordCountPairs.get(i).count);

@@ -9,6 +9,23 @@ import java.io.IOException;
 
 public class App {
 
+    // make the app to be console app
+    // info:
+    //   statistics:
+    //      - sentences count
+    //      - total words count
+    //      - unique words count
+    //   frequency:
+    //      - words frequency in th following format:
+    //          - hobbit: <total count>, <in how many sentences encountered>
+    // examples of launch:
+    //      - <app>.java <path>                                  | default launch, all info (stat and frequency) is outputted
+    //      - <app>.java <path> -s                               | only statistic outputted
+    //      - <app>.java <path> -f                               | only frequency outputted
+    //      - <app>.java <path> -w:<ignore_words_list.txt>       | ignores words from the appropriated file
+
+
+
     private Driver driver = new Driver();
     private ConsoleInputsReceiver console = new ConsoleInputsReceiver();
 
@@ -16,6 +33,7 @@ public class App {
         App app = new App();
         app.start();
     }
+
     private void start() throws IOException {           //почему static не требует??
 
         System.out.println("Sentences count: " + driver.countSentences());
@@ -26,4 +44,5 @@ public class App {
         System.out.println("A word(s) with frequency '" + frequency + "' : " + driver.getByFrequency(frequency));
 
     }
+
 }

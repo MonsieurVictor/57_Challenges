@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.util.*;
 import java.util.stream.Stream;
 
-// is responsible for analysing the text
-
-
+/**
+ * is responsible for analysing the text
+ */
 public class Driver {
 
     private String rawText;

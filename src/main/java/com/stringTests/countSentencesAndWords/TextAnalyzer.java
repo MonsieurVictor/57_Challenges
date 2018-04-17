@@ -2,11 +2,11 @@ package com.stringTests.countSentencesAndWords;
 
 import java.util.List;
 
-public class TextAnalizer {
+public class TextAnalyzer {
 
     private List<String> sentences;
 
-    public TextAnalizer(StringBuffer text) {
+    public TextAnalyzer(StringBuffer text) {
         // count sentences
         // count words
         // etc

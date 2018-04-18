@@ -26,7 +26,7 @@ public class AnalyzerApp {
         ITextAnalyzer analyzer = new TextAnalyzer();
         IAppOptions options = new AppOptions(args);
         IResultViewer viewer = new ResultViewer();
-        AnalyzerApp app = new AnalyzerApp(reader, analyzer, options, viewer)
+        AnalyzerApp app = new AnalyzerApp(reader, analyzer, options, viewer);
         app.execute(args);
     }
 }

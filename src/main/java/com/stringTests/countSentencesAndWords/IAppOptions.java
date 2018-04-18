@@ -5,7 +5,9 @@ package com.stringTests.countSentencesAndWords;
  */
 public interface IAppOptions {
 
-    public void setOptions(String[] optionsArgs);
+    public String getIgnoreListPath();
+
+    public boolean setOptions(String[] args);
 
     public String getTextFilePath();
 }

@@ -22,10 +22,11 @@ public class AnalyzerApp {
     }
 
     public static void main(String[] args) {
-        // ITextReader reader = new TextReader();
-        // ITextAnalyzer analyzer = new Analyzer();
-        // IAppOptions options = new AppOptions(args)
-        // AnalyzerApp app = new AnalyzerApp(reader, analyzer, options)
-        // app.execute(args);
+        ITextReader reader = new TextReader();
+        ITextAnalyzer analyzer = new TextAnalyzer();
+        IAppOptions options = new AppOptions(args);
+        IResultViewer viewer = new ResultViewer();
+        AnalyzerApp app = new AnalyzerApp(reader, analyzer, options, viewer)
+        app.execute(args);
     }
 }

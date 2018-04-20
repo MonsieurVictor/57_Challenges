@@ -4,7 +4,8 @@ public class TextReader implements ITextReader {
 
     public void setFilePath(String path);
 
-    public StringBuffer getTextBuffer();
+    public StringBuffer getTextBuffer()
+    return StringBuffer;
 
 
 }

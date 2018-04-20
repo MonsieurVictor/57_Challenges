@@ -7,26 +7,19 @@ public class AnalyzerApp {
     public IResultViewer viewer;
     public IAppOptions options;
 
-    public AnalyzerApp(ITextReader reader, ITextAnalyzer analyzer, IAppOptions filter, IResultViewer viewer) {
+    public AnalyzerApp(ITextReader reader, ITextAnalyzer analyzer, IAppOptions options, IResultViewer viewer) {
         this.reader = reader;
         this.analyzer = analyzer;
-        this.options = filter;
+        this.options = options;
         this.viewer = viewer;
     }
 
-    public void execute() {
+    public void execute(String[] args) {
         reader.setFilePath(options.getTextFilePath());
         analyzer.setBuffer(reader.getTextBuffer());
         analyzer.doAnalyze();
         viewer.report(this.analyzer);
     }
 
-    public static void main(String[] args) {
-        ITextReader reader = new TextReader();
-        ITextAnalyzer analyzer = new TextAnalyzer();
-        IAppOptions options = new AppOptions(args);
-        IResultViewer viewer = new ResultViewer();
-        AnalyzerApp app = new AnalyzerApp(reader, analyzer, options, viewer);
-        app.execute(args);
-    }
+
 }

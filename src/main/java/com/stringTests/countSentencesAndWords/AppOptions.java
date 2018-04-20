@@ -14,7 +14,7 @@ public class AppOptions implements IAppOptions{
             filePath = args[0];
             return true;
         }
-        if (args.length == 2) {
+        else if (args.length == 2) {
             filePath = args[0];
 
             if (args[1].equals("s")) {
@@ -26,7 +26,7 @@ public class AppOptions implements IAppOptions{
                 return true;
             }
         }
-        if (args.length == 3) {
+        else if (args.length == 3) {
             if (args[1].equals("w")) {
                 filePath = args[0];
                 isIgnoreEnabled = true;

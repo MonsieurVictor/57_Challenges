@@ -24,24 +24,21 @@ public class App {
     //      - <app>.java <path> -f                               | only frequency outputted
     //      - <app>.java <path> -w:<ignore_words_list.txt>       | ignores words from the appropriated file
 
-
-
-    private Driver driver = new Driver();
-    private ConsoleInputsReceiver console = new ConsoleInputsReceiver();
-
-    public static void main(String[] args) throws IOException {
-        App app = new App();
-        app.start();
+    public static void main(String[] args) {
+        ITextReader reader = new TextReader();
+        ITextAnalyzer analyzer = new TextAnalyzer();
+        IAppOptions options = new AppOptions();
+        IResultViewer viewer = new ResultViewer();
+        AnalyzerApp app = new AnalyzerApp(reader, analyzer, options, viewer);
+        app.execute(args);
     }
 
     private void start() throws IOException {           //почему static не требует??
 
-        System.out.println("Sentences count: " + driver.countSentences());
+        System.out.println("Sentences count: " );
         System.out.println("The list of words and their frequency is:");
-        driver.getFrequencies();
         System.out.println("Enter the required frequency:");
-        int frequency = console.insistOnIntegerPositiveInput();
-        System.out.println("A word(s) with frequency '" + frequency + "' : " + driver.getByFrequency(frequency));
+        System.out.println("A word(s) with frequency '" );
 
     }
 

@@ -6,13 +6,14 @@ public class TextAnalyzer {
 
     private List<String> sentences;
 
-    public TextAnalyzer(StringBuffer text) {
+    public TextAnalyzer getText(StringBuffer text) {
         // count sentences
         // count words
         // etc
         // etc
         // etc
     }
+}
 
     public List<String> getSentencesWith(String word) {
         return null;

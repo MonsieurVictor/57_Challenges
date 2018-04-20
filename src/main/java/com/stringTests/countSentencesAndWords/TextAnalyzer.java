@@ -2,18 +2,24 @@ package com.stringTests.countSentencesAndWords;
 
 import java.util.List;
 
-public class TextAnalyzer {
+public class TextAnalyzer implements ITextAnalyzer{
 
     private List<String> sentences;
 
     public TextAnalyzer getText(StringBuffer text) {
+        StringBuffer text = reader.getTextBuffer();
         // count sentences
         // count words
         // etc
         // etc
         // etc
+        return text;
     }
-}
+
+    public void setBuffer(StringBuffer buffer){
+
+    };
+
 
     public List<String> getSentencesWith(String word) {
         return null;

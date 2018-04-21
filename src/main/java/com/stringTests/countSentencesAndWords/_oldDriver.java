@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 /**
  * is responsible for analysing the text
  */
-public class Driver {
+public class _oldDriver {
 
     private String rawText;
 

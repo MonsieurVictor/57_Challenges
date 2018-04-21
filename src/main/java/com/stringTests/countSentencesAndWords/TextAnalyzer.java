@@ -1,13 +1,25 @@
 package com.stringTests.countSentencesAndWords;
 
+import java.io.IOException;
 import java.util.List;
 
 public class TextAnalyzer implements ITextAnalyzer{
 
     private List<String> sentences;
 
-    public TextAnalyzer getText(StringBuffer text) {
-        StringBuffer text = reader.getTextBuffer();
+
+    public TextAnalyzer getAllSentences(StringBuffer buffer) {
+        int endOfSentense;
+        int beginOfSentense;
+
+        for(int i ; i < buffer.length(); i++){
+
+            if (buffer.charAt(i)).equals("[!?.:]+"){
+                endOfSentense = i;
+            }
+            sentences.add(buffer.substring(beginOfSentense, endOfSentense))
+            beginOfSentense = i+1;
+        }
         // count sentences
         // count words
         // etc
@@ -18,7 +30,13 @@ public class TextAnalyzer implements ITextAnalyzer{
 
     public void setBuffer(StringBuffer buffer){
 
-    };
+    }
+    public void doAnalyze(ITextReader reader, ITextAnalyzer textAnalyzer, IAppOptions options, IResultViewer viewer) throws IOException {
+       getAllSentences(reader.getTextBuffer());
+
+
+
+    }
 
 
     public List<String> getSentencesWith(String word) {

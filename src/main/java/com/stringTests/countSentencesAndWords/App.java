@@ -3,8 +3,6 @@ package com.stringTests.countSentencesAndWords;
 // This program counts sentences and words' frequency from a given text.
 
 
-import com.utils.ConsoleInputsReceiver;
-
 import java.io.IOException;
 
 public class App {
@@ -24,13 +22,13 @@ public class App {
     //      - <app>.java <path> -f                               | only frequency outputted
     //      - <app>.java <path> -w:<ignore_words_list.txt>       | ignores words from the appropriated file
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ITextReader reader = new TextReader();
         ITextAnalyzer analyzer = new TextAnalyzer();
         IAppOptions options = new AppOptions();
         IResultViewer viewer = new ResultViewer();
-        AnalyzerApp app = new AnalyzerApp(reader, analyzer, options, viewer);
-        app.execute(args);
+        FactoryApp factory = new FactoryApp(reader, analyzer, options, viewer);
+        factory.execute(args);
     }
 
     private void start() throws IOException {           //почему static не требует??

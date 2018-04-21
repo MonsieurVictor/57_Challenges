@@ -1,50 +1,80 @@
 package com.stringTests.countSentencesAndWords;
 
-public class AppOptions implements IAppOptions{
+import java.util.Arrays;
+import java.util.stream.Stream;
 
+/**
+ * parses command line arguments and sets the following flags to true:
+ *   -a: if all kind of info must be outputted
+ *   -s: if only statistics must be outputted
+ *   -f: if only frequency must be outputted
+ *   -w: if file with words to ignore is specified
+ *  and the following variables:
+ *   - filePath (mandatory): the path to file with text to analyze
+ *   - ignoreListFilePath (optional, if the "w" flag is true): the path to file with words to ignore
+ */
+public class AppOptions implements IAppOptions {
 
-    private String filePath;
-    public String ignoreListPath;
-    public boolean isStatsEnabled = true;
-    public boolean isFreqEnabled = true;
+    private final String STATS_FLAG = "-s";
+    private final String FREQ_FLAG = "-f";
+    private final String IGNORE_FLAG = "-w";
+
+    public String filePath;
+    public String ignoreListFilePath;
+    public boolean isStatsEnabled = false;
+    public boolean isFreqEnabled = false;
     public boolean isIgnoreEnabled = false;
 
-    public boolean setOptions(String[] args) {
-        if (args.length == 1) {
-            filePath = args[0];
-            return true;
-        }
-        else if (args.length == 2) {
-            filePath = args[0];
+    private String[] commandArgs;
 
-            if (args[1].equals("s")) {
-                isFreqEnabled = false;
-                return true;
-            }
-            if (args[1].equals("f")) {
-                isStatsEnabled = false;
-                return true;
-            }
-        }
-        else if (args.length == 3) {
-            if (args[1].equals("w")) {
-                filePath = args[0];
-                isIgnoreEnabled = true;
-                isFreqEnabled = false;
-                isStatsEnabled = false;
-                ignoreListPath = args[1];
-                return true;
-            }
-        }
-        System.out.println("Illegal start parameters!");
-        return false;
+    private boolean isOptionSpecified(String option, String[] args) {
+        return Stream.of(args).anyMatch(arg -> arg.equals(option));
     }
 
-    public String getTextFilePath() {
-        return filePath;
+    private AppOptions verifyCommandFormat() throws Exception {
+        if (this.commandArgs.length == 0) {
+            throw new Exception("Not specified file path as a first argument");
+        }
+        return this;
     }
 
-    public String getIgnoreListPath() {
-        return ignoreListPath;
+    private AppOptions setFilePath() {
+        this.filePath = this.commandArgs[0];
+        return this;
     }
+
+    private AppOptions setStatsEnabled() {
+        if (isOptionSpecified(this.STATS_FLAG, this.commandArgs)) { this.isStatsEnabled = true; }
+        return this;
+    }
+
+    private AppOptions setFrequencyEnabled() {
+        if (isOptionSpecified(this.FREQ_FLAG, this.commandArgs)) { this.isFreqEnabled = true; }
+        return this;
+    }
+
+    private AppOptions setIgnoreList() {
+        int idxOfIgnoreOption = Arrays.asList(this.commandArgs).indexOf(this.IGNORE_FLAG);
+        if (idxOfIgnoreOption != -1) {
+            this.isIgnoreEnabled = true;
+            this.ignoreListFilePath = this.commandArgs[idxOfIgnoreOption + 1];
+        }
+        return this;
+    }
+
+    /**
+     * most full command format: <filePath> -s -f -w <ignoreListFilePath>
+     * @param args
+     * @return
+     */
+    public void parseOptions(String[] args) throws Exception {
+        this.commandArgs = args;
+        this
+            .verifyCommandFormat()
+            .setFilePath()
+            .setStatsEnabled()
+            .setFrequencyEnabled()
+            .setIgnoreList();
+    }
+
 }

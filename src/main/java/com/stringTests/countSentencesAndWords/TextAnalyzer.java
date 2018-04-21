@@ -1,14 +1,22 @@
 package com.stringTests.countSentencesAndWords;
 
-import java.io.IOException;
 import java.util.List;
 
-public class TextAnalyzer implements ITextAnalyzer{
+public class TextAnalyzer implements ITextAnalyzer {
 
     private List<String> sentences;
 
+    private List<String> ignoreList;
+
+    public void setIgnoreList(List<String> list) {
+        this.ignoreList = list;
+    }
+
+
+
 
     public TextAnalyzer getAllSentences(StringBuffer buffer) {
+        /*
         int endOfSentense;
         int beginOfSentense;
 
@@ -26,15 +34,22 @@ public class TextAnalyzer implements ITextAnalyzer{
         // etc
         // etc
         return text;
+        */
+        return null;
     }
 
     public void setBuffer(StringBuffer buffer){
 
     }
-    public void doAnalyze(ITextReader reader, ITextAnalyzer textAnalyzer, IAppOptions options, IResultViewer viewer) throws IOException {
-       getAllSentences(reader.getTextBuffer());
 
 
+    //public void doAnalyze(ITextReader reader, ITextAnalyzer analyzer, IAppOptions options, IResultViewer viewer) throws IOException {
+       //getAllSentences(reader.getTextBuffer());
+
+
+    //}
+
+    public void doAnalyze(IAppOptions options) {
 
     }
 

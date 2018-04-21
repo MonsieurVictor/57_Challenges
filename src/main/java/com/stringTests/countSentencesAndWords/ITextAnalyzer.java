@@ -4,32 +4,26 @@ import java.util.List;
 
 public interface ITextAnalyzer {
 
-    public void setBuffer(StringBuffer buffer);
+    void setBuffer(StringBuffer buffer);
 
-    public void doAnalyze();
+    void setIgnoreList(List<String> list);
 
-    public List<String> getSentencesWith(String word);
+    void doAnalyze(IAppOptions options);
 
-    public int getSentencesCount();
+    /*
 
-    public int getTotalWordsCount();
+    List<String> getSentencesWith(String word);
 
-    public int getUniqueWordsCount();
+    int getSentencesCount();
 
-    public int getSentencesCountWith(String word);
+    int getTotalWordsCount();
 
-    /**
-     * gets all words with frequency more or equaled to start
-     * @param start
-     * @return
-     */
-    public List<String> getWordsWithFrequency(int start);
+    int getUniqueWordsCount();
 
-    /**
-     * gets all words with frequency from 5 to 10
-     * @param start
-     * @param end
-     * @return
-     */
-    public List<String> getWordsWithFrequency(int start, int end);
+    int getSentencesCountWith(String word);
+
+    List<String> getWordsWithFrequency(int start);
+
+    List<String> getWordsWithFrequency(int start, int end);
+    */
 }

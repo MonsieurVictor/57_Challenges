@@ -5,9 +5,11 @@ package com.stringTests.countSentencesAndWords;
  */
 public interface IAppOptions {
 
-    public String getIgnoreListPath();
+    void parseOptions(String[] args) throws Exception;
 
-    public boolean setOptions(String[] args);
+    String getFilePath();
 
-    public String getTextFilePath();
+    String getIgnoreListFilePath();
+
+    boolean isIgnoreListEnabled();
 }

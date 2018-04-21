@@ -19,13 +19,26 @@ public class AppOptions implements IAppOptions {
     private final String FREQ_FLAG = "-f";
     private final String IGNORE_FLAG = "-w";
 
-    public String filePath;
-    public String ignoreListFilePath;
+    private String filePath;
+    private String ignoreListFilePath;
+
     public boolean isStatsEnabled = false;
     public boolean isFreqEnabled = false;
-    public boolean isIgnoreEnabled = false;
+    private boolean isIgnoreEnabled = false;
 
     private String[] commandArgs;
+
+    public boolean isIgnoreListEnabled() {
+        return this.isIgnoreEnabled;
+    }
+
+    public String getFilePath() {
+        return this.filePath;
+    }
+
+    public String getIgnoreListFilePath() {
+        return this.ignoreListFilePath;
+    }
 
     private boolean isOptionSpecified(String option, String[] args) {
         return Stream.of(args).anyMatch(arg -> arg.equals(option));

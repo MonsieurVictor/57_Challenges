@@ -29,17 +29,19 @@ public class App {
     private ITextAnalyzer analyzer;
     private IAppOptions options;
     private IResultViewer viewer;
+    private IErrorLogger logger;
     
     public App(
             ITextReader reader,
             ITextAnalyzer analyzer,
             IAppOptions options,
-            IResultViewer viewer) {
+            IResultViewer viewer, IErrorLogger logger) {
 
         this.reader = reader;
         this.analyzer = analyzer;
         this.options = options;
         this.viewer = viewer;
+        this.logger = logger;
 
     }
 
@@ -61,7 +63,7 @@ public class App {
             logger.errorOpen(e);
             // nice report on can't open the file
         } catch (Exception e) {
-            logger.errorRead(e);
+            logger.errorReadFlags(e);
             // nice report here
         }
     }
@@ -73,7 +75,7 @@ public class App {
         ITextAnalyzer analyzer = new TextAnalyzer();
         IAppOptions options = new AppOptions();
         IResultViewer viewer = new ConsoleResultViewer();
-        App app = new App(reader, analyzer, options, viewer);
+        App app = new App(reader, analyzer, options, viewer, logger);
         app.execute(args);
     }
 

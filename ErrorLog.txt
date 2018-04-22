@@ -1,0 +1,1 @@
+Error reading flags:java.lang.Exception: Not specified file path as a first argument

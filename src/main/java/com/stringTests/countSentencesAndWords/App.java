@@ -58,8 +58,10 @@ public class App {
             analyzer.doAnalyze(options);
             viewer.report(analyzer);
         } catch (IOException e) {
+            logger.errorOpen(e);
             // nice report on can't open the file
         } catch (Exception e) {
+            logger.errorRead(e);
             // nice report here
         }
     }
@@ -67,6 +69,7 @@ public class App {
 
     public static void main(String[] args) {
         ITextReader reader = new TextReader();
+        IErrorLogger logger = new ErrorLogger();
         ITextAnalyzer analyzer = new TextAnalyzer();
         IAppOptions options = new AppOptions();
         IResultViewer viewer = new ConsoleResultViewer();

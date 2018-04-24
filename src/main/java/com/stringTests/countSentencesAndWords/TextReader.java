@@ -19,5 +19,4 @@ public class TextReader implements ITextReader {
     public StringBuffer getTextBuffer() {
         return this.buffer;
     }
-
 }

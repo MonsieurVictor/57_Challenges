@@ -12,17 +12,13 @@ public class TextAnalyzer implements ITextAnalyzer {
         this.ignoreList = list;
     }
 
-
-
-
     public TextAnalyzer getAllSentences(StringBuffer buffer) {
-        /*
         int endOfSentense;
         int beginOfSentense;
 
-        for(int i ; i < buffer.length(); i++){
+        for(int i = 0 ; i < buffer.length(); i++){
 
-            if (buffer.charAt(i)).equals("[!?.:]+"){
+            if ((buffer.charAt(i)).equals("[!?.:]+")){
                 endOfSentense = i;
             }
             sentences.add(buffer.substring(beginOfSentense, endOfSentense))
@@ -33,8 +29,6 @@ public class TextAnalyzer implements ITextAnalyzer {
         // etc
         // etc
         // etc
-        return text;
-        */
         return null;
     }
 

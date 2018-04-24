@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ErrorLogger implements IErrorLogger {
     public void errorOpen(IOException e){
-        try ( BufferedWriter writer = new BufferedWriter(new FileWriter("ErrorLofg.txt")))  {
+        try ( BufferedWriter writer = new BufferedWriter(new FileWriter("ErrorLog.txt")))  {
             writer.write("OpenError:" + e.toString());
             writer.newLine();
             writer.close();

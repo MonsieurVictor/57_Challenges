@@ -4,6 +4,8 @@ import java.util.List;
 
 public class TextAnalyzer implements ITextAnalyzer {
 
+    private StringBuffer buffer;
+
     private List<String> sentences;
 
     private List<String> ignoreList;
@@ -12,17 +14,21 @@ public class TextAnalyzer implements ITextAnalyzer {
         this.ignoreList = list;
     }
 
-    public TextAnalyzer getAllSentences(StringBuffer buffer) {
-        int endOfSentense;
-        int beginOfSentense;
+    public TextAnalyzer getAllSentences() {
+        int endOfSentense = 0;
+        int beginOfSentense = 0;
 
-        for(int i = 0 ; i < buffer.length(); i++){
+        for(int i = 0 ; i < this.buffer.length(); i++){
+            Character currentChar = new Character(this.buffer.charAt(i));
 
-            if ((buffer.charAt(i)).equals("[!?.:]+")){
+            if (currentChar.equals("[!?.:]+")){
                 endOfSentense = i;
+                sentences.add(this.buffer.substring(beginOfSentense, endOfSentense));
+                beginOfSentense = i+1;
             }
-            sentences.add(buffer.substring(beginOfSentense, endOfSentense))
-            beginOfSentense = i+1;
+        }
+        for ( Object listElement : sentences){
+            System.out.println(listElement);
         }
         // count sentences
         // count words
@@ -33,6 +39,7 @@ public class TextAnalyzer implements ITextAnalyzer {
     }
 
     public void setBuffer(StringBuffer buffer){
+        this.buffer = buffer;
 
     }
 
@@ -44,6 +51,7 @@ public class TextAnalyzer implements ITextAnalyzer {
     //}
 
     public void doAnalyze(IAppOptions options) {
+        getAllSentences();
 
     }
 

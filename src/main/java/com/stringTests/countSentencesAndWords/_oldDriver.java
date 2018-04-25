@@ -45,7 +45,7 @@ public class _oldDriver {
         while (reader.ready()) {
             String str = reader.readLine();
             Stream.of(str.split("[^A-Za-zА-Яа-я]+"))
-                    .map(String::toLowerCase).forEach(wordsOnly::add); // откуда :: ????
+                    .map(String::toLowerCase).forEach(wordsOnly::add);
         }
 
         Map<String, Integer> frequencyRegisterMap = new HashMap<String, Integer>();

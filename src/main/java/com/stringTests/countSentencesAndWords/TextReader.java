@@ -9,7 +9,7 @@ public class TextReader implements ITextReader {
     private StringBuffer buffer;
 
     public void setFilePath(String path) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(path));
+        BufferedReader reader = new BufferedReader(new FileReader("DBDir/text.txt"));
         this.buffer = new StringBuffer();
         while (reader.ready()) {
             this.buffer.append(reader.readLine());

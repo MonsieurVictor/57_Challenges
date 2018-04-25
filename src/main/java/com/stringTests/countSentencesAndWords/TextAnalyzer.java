@@ -15,20 +15,23 @@ public class TextAnalyzer implements ITextAnalyzer {
     }
 
     public TextAnalyzer getAllSentences() {
-        int endOfSentense = 0;
+        int endOfSentense;
         int beginOfSentense = 0;
 
-        for(int i = 0 ; i < this.buffer.length(); i++){
+        for(int i = 0 ; i < this.buffer.toString().length(); i++){
             Character currentChar = new Character(this.buffer.charAt(i));
 
-            if (currentChar.equals("[!?.:]+")){
+
+            if (isPunctuation(currentChar)){
+                StringBuffer tempBuffer = new StringBuffer();
+                tempBuffer = buffer;
                 endOfSentense = i;
-                sentences.add(this.buffer.substring(beginOfSentense, endOfSentense));
+                sentences.add(tempBuffer.substring(beginOfSentense, endOfSentense));
                 beginOfSentense = i+1;
             }
         }
-        for ( Object listElement : sentences){
-            System.out.println(listElement);
+        for ( int i = 0; i < sentences.size(); i++ ){
+            System.out.println(sentences.get(i).toString());
         }
         // count sentences
         // count words
@@ -40,6 +43,7 @@ public class TextAnalyzer implements ITextAnalyzer {
 
     public void setBuffer(StringBuffer buffer){
         this.buffer = buffer;
+
 
     }
 
@@ -95,4 +99,11 @@ public class TextAnalyzer implements ITextAnalyzer {
         return null;
     }
 
+    private boolean isPunctuation(Character currentChar){
+        if (currentChar.equals('.')||currentChar.equals('!')
+                ||currentChar.equals('?')){
+            return true;
+        }
+        return false;
+    }
 }

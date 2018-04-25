@@ -6,6 +6,7 @@ import java.io.IOException;
 
 public class ErrorLogger implements IErrorLogger {
     public void errorOpen(IOException e){
+        System.out.println("OpenError:" + e.toString());
         try ( BufferedWriter writer = new BufferedWriter(new FileWriter("ErrorLog.txt")))  {
             writer.write("OpenError:" + e.toString());
             writer.newLine();
@@ -18,6 +19,7 @@ public class ErrorLogger implements IErrorLogger {
 
 
     public void errorReadFlags (Exception e){
+        System.out.println("Error reading flags:" + e.toString());
         try ( BufferedWriter writer = new BufferedWriter(new FileWriter("ErrorLog.txt")))  {
             writer.write("Error reading flags:" + e.toString());
             writer.newLine();

@@ -23,7 +23,7 @@ import java.util.List;
  *          - hobbit: <total count>, <in how many sentences encountered>
  * 
  */
-public class App {
+public class MainAppCounter {
 
     private ITextReader reader;
     private ITextAnalyzer analyzer;
@@ -31,7 +31,7 @@ public class App {
     private IResultViewer viewer;
     private IErrorLogger logger;
     
-    public App(
+    public MainAppCounter(
             ITextReader reader,
             ITextAnalyzer analyzer,
             IAppOptions options,
@@ -75,7 +75,7 @@ public class App {
         ITextAnalyzer analyzer = new TextAnalyzer();
         IAppOptions options = new AppOptions();
         IResultViewer viewer = new ConsoleResultViewer();
-        App app = new App(reader, analyzer, options, viewer, logger);
+        MainAppCounter app = new MainAppCounter(reader, analyzer, options, viewer, logger);
         app.execute(args);
     }
 

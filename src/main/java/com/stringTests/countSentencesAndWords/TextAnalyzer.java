@@ -1,12 +1,13 @@
 package com.stringTests.countSentencesAndWords;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TextAnalyzer implements ITextAnalyzer {
 
     private StringBuffer buffer;
 
-    private List<String> sentences;
+    private List<String> sentences = new ArrayList<>();
 
     private List<String> ignoreList;
 
@@ -23,8 +24,7 @@ public class TextAnalyzer implements ITextAnalyzer {
 
 
             if (isPunctuation(currentChar)){
-                StringBuffer tempBuffer = new StringBuffer();
-                tempBuffer = buffer;
+                StringBuffer tempBuffer = new StringBuffer(buffer.toString());
                 endOfSentense = i;
                 sentences.add(tempBuffer.substring(beginOfSentense, endOfSentense));
                 beginOfSentense = i+1;

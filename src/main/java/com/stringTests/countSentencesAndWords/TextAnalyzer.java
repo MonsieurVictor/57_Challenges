@@ -11,28 +11,51 @@ public class TextAnalyzer implements ITextAnalyzer {
 
     private List<String> ignoreList;
 
+    private int endOfSentence;
+    private int beginOfSentence;
+    private int sentenceCount;
+    private int endByQuotesCount;
+    private int continuedAfterQuotesCount;
+
     public void setIgnoreList(List<String> list) {
         this.ignoreList = list;
     }
 
     public TextAnalyzer getAllSentences() {
-        int endOfSentense;
-        int beginOfSentense = 0;
 
-        for(int i = 0 ; i < this.buffer.toString().length(); i++){
-            Character currentChar = new Character(this.buffer.charAt(i));
+        for(int i = 0 ; i < this.buffer.length(); i++){
+            Character currentChar = this.buffer.charAt(i);
+            endOfSentence = i+1;
+            if (isPunctuation(currentChar) && isNotMr(i) && isEndedAfterQuotes(i)) {
 
+                if(beginOfSentence < buffer.length() && this.buffer.charAt(beginOfSentence)=='‘'){
 
-            if (isPunctuation(currentChar)){
-                StringBuffer tempBuffer = new StringBuffer(buffer.toString());
-                endOfSentense = i;
-                sentences.add(tempBuffer.substring(beginOfSentense, endOfSentense));
-                beginOfSentense = i+1;
+                    endOfSentence++;
+
+                    sentences.add(buffer.substring(beginOfSentence, endOfSentence));
+                    beginOfSentence = i+2;
+                    endByQuotesCount++;
+                }
+                else{
+                    endOfSentence = i+1;
+                    sentences.add(buffer.substring(beginOfSentence, endOfSentence));
+                    beginOfSentence = i+1;
+                }
+
+                while(beginOfSentence < buffer.length() && this.buffer.charAt(beginOfSentence)==' '){
+                    beginOfSentence++;
+                }
+
+                sentenceCount++;
             }
         }
         for ( int i = 0; i < sentences.size(); i++ ){
-            System.out.println(sentences.get(i).toString());
+            System.out.println(sentences.get(i));
+
         }
+        System.out.println("sentenceCount " + sentenceCount);
+        System.out.println("endByQuotesCount " + endByQuotesCount);
+        System.out.println("continuedAfterQuotesCount " + continuedAfterQuotesCount);
         // count sentences
         // count words
         // etc
@@ -100,10 +123,40 @@ public class TextAnalyzer implements ITextAnalyzer {
     }
 
     private boolean isPunctuation(Character currentChar){
-        if (currentChar.equals('.')||currentChar.equals('!')
-                ||currentChar.equals('?')){
+        if (currentChar.toString().matches("[!?.]+")){
             return true;
         }
         return false;
+    }
+
+    private boolean isNotMr(int i) {
+        Character firstChar = Character.toLowerCase(this.buffer.charAt(i-2));
+        Character secondChar = Character.toLowerCase(this.buffer.charAt(i-1));
+
+        if (i > 1 && firstChar.equals('m') && secondChar.equals('r')){
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isEndedAfterQuotes(int i){
+        if (i<(this.buffer.length()-10000)) {
+            Character firstChar = new Character(this.buffer.charAt(i+1));
+//            System.out.println(firstChar);
+            Character secondChar = new Character(this.buffer.charAt(i+2));
+//            System.out.println(secondChar);
+            Character thirdChar = new Character(this.buffer.charAt(i+3));
+//            System.out.println(thirdChar);
+            if (beginOfSentence < buffer.length() && firstChar.toString().matches("['’‘]+")) {
+                continuedAfterQuotesCount++;
+                if (secondChar == ' ' && thirdChar.toString().matches("[a-z]+")) {
+                    continuedAfterQuotesCount++;
+                    return false;
+                }
+            }
+
+        }
+        return true;
+
     }
 }

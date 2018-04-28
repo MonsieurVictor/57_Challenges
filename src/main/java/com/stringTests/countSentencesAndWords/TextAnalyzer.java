@@ -2,10 +2,13 @@ package com.stringTests.countSentencesAndWords;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class TextAnalyzer implements ITextAnalyzer {
 
     private StringBuffer buffer;
+
+    private List<String> totalWordsList = new ArrayList<String>();
 
     private List<String> sentences = new ArrayList<>();
 
@@ -27,25 +30,9 @@ public class TextAnalyzer implements ITextAnalyzer {
             Character currentChar = this.buffer.charAt(i);
             endOfSentence = i+1;
             if (isPunctuation(currentChar) && isNotMr(i) && isEndedAfterQuotes(i)) {
-
-                if(beginOfSentence < buffer.length() && this.buffer.charAt(beginOfSentence)=='‘'){
-
-                    endOfSentence++;
-
-                    sentences.add(buffer.substring(beginOfSentence, endOfSentence));
-                    beginOfSentence = i+2;
-                    endByQuotesCount++;
-                }
-                else{
-                    endOfSentence = i+1;
-                    sentences.add(buffer.substring(beginOfSentence, endOfSentence));
-                    beginOfSentence = i+1;
-                }
-
-                while(beginOfSentence < buffer.length() && this.buffer.charAt(beginOfSentence)==' '){
-                    beginOfSentence++;
-                }
-
+                checkStartWithQuotes(i);
+                removeSpaces();
+                removeQuotes();
                 sentenceCount++;
             }
         }
@@ -71,15 +58,15 @@ public class TextAnalyzer implements ITextAnalyzer {
     }
 
 
-    //public void doAnalyze(ITextReader reader, ITextAnalyzer analyzer, IAppOptions options, IResultViewer viewer) throws IOException {
-       //getAllSentences(reader.getTextBuffer());
-
-
-    //}
 
     public void doAnalyze(IAppOptions options) {
         getAllSentences();
-
+        getSentencesCount();
+        getTotalWordsCount();
+        getUniqueWordsCount();
+//        getSentencesCountWith("hello");
+//        getWordsWithFrequency(5);
+//        getWordsWithFrequency(5, 10);
     }
 
 
@@ -88,11 +75,18 @@ public class TextAnalyzer implements ITextAnalyzer {
     }
 
     public int getSentencesCount() {
-        return 9;
+        return sentences.size();
     }
 
     public int getTotalWordsCount() {
-        return 8;
+
+
+
+            Stream.of(buffer.toString().split("[^A-Za-zА-Яа-я]+"))
+                    .map(String::toLowerCase).forEach(totalWordsList::add);
+        System.out.println("Total words count = " + totalWordsList.size());
+
+        return totalWordsList.size();
     }
 
     public int getUniqueWordsCount() {
@@ -140,23 +134,49 @@ public class TextAnalyzer implements ITextAnalyzer {
     }
 
     private boolean isEndedAfterQuotes(int i){
-        if (i<(this.buffer.length()-10000)) {
+        if (i<(this.buffer.length()-3)) {
             Character firstChar = new Character(this.buffer.charAt(i+1));
 //            System.out.println(firstChar);
             Character secondChar = new Character(this.buffer.charAt(i+2));
 //            System.out.println(secondChar);
             Character thirdChar = new Character(this.buffer.charAt(i+3));
 //            System.out.println(thirdChar);
-            if (beginOfSentence < buffer.length() && firstChar.toString().matches("['’‘]+")) {
-                continuedAfterQuotesCount++;
+
                 if (secondChar == ' ' && thirdChar.toString().matches("[a-z]+")) {
                     continuedAfterQuotesCount++;
                     return false;
                 }
             }
-
-        }
         return true;
-
     }
+
+    private void removeSpaces(){
+        while(beginOfSentence < buffer.length() && this.buffer.charAt(beginOfSentence)==' '){
+            beginOfSentence++;
+        }
+    }
+
+    private void removeQuotes(){
+        if(beginOfSentence < buffer.length() && buffer.charAt(beginOfSentence) == '’'){
+            beginOfSentence++;
+            endOfSentence++;
+        }
+    }
+    private void checkStartWithQuotes(int i){
+        if(beginOfSentence < buffer.length() && this.buffer.charAt(beginOfSentence)=='‘'){
+
+            endOfSentence++;
+
+            sentences.add(buffer.substring(beginOfSentence, endOfSentence));
+            beginOfSentence = i+2;
+            endByQuotesCount++;
+        }
+        else{
+            endOfSentence = i+1;
+            sentences.add(buffer.substring(beginOfSentence, endOfSentence));
+            beginOfSentence = i+1;
+        }
+    }
+
+
 }

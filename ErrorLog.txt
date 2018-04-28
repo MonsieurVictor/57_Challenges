@@ -30,3 +30,7 @@ Error reading flags:java.lang.IndexOutOfBoundsException: Index: 193, Size: 1
 Error reading flags:java.lang.IndexOutOfBoundsException: Index: 193, Size: 1
 Error reading flags:java.lang.IndexOutOfBoundsException: Index: 193, Size: 1
 Error reading flags:java.lang.IndexOutOfBoundsException: Index: 193, Size: 1
+Error reading flags:java.lang.StringIndexOutOfBoundsException: String index out of range: 53619
+Error reading flags:java.lang.StringIndexOutOfBoundsException: String index out of range: 53619
+Error reading flags:java.lang.StringIndexOutOfBoundsException: String index out of range: 53619
+Error reading flags:java.lang.NullPointerException

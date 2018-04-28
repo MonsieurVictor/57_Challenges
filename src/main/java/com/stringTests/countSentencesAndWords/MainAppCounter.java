@@ -31,11 +31,12 @@ public class MainAppCounter {
     private IResultViewer viewer;
     private IErrorLogger logger;
     
-    public MainAppCounter(
+    public MainAppCounter(    // какой смысл в этом конструкторе?
             ITextReader reader,
             ITextAnalyzer analyzer,
             IAppOptions options,
-            IResultViewer viewer, IErrorLogger logger) {
+            IResultViewer viewer,
+            IErrorLogger logger) {
 
         this.reader = reader;
         this.analyzer = analyzer;
@@ -45,18 +46,22 @@ public class MainAppCounter {
 
     }
 
-    private List<String> parseIgnoreList(String ignoreListFilePath) {
+    private List<String> parseIgnoreList(String ignoreListFilePath) throws IOException {
+
+        analyzer.setBuffer(reader.getTextBuffer(ignoreListFilePath));
+        analyzer.setIgnoreList(analyzer.getTotalWords());
+
         return null;
     }
 
     public void execute(String[] args) {
         try {
             options.parseOptions(args);
-            reader.setFilePath(options.getFilePath());
-            analyzer.setBuffer(reader.getTextBuffer());
+
             if (options.isIgnoreListEnabled()) {
                 analyzer.setIgnoreList(this.parseIgnoreList(options.getIgnoreListFilePath()));
             }
+            analyzer.setBuffer(reader.getTextBuffer(options.getFilePath()));
             analyzer.doAnalyze(options);
             viewer.report(analyzer);
         } catch (IOException e) {

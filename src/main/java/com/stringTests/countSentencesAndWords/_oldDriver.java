@@ -50,16 +50,16 @@ public class _oldDriver {
 
         Map<String, Integer> frequencyRegisterMap = new HashMap<String, Integer>();
 
-        for (int i = 0; i < wordsOnly.size(); i++) {
-            String currentWord = wordsOnly.get(i);
-            if (currentWord.equals("")){}                        //иначе находит 281 совпадение ""
-            else if (frequencyRegisterMap.containsKey(currentWord)) {
-                Integer value = frequencyRegisterMap.get(currentWord);
-                frequencyRegisterMap.replace(currentWord, value = value + 1);
-            } else {
-                frequencyRegisterMap.put(currentWord, 1);
-            }
-        }
+//        for (int i = 0; i < wordsOnly.size(); i++) {
+//            String currentWord = wordsOnly.get(i);
+//            if (currentWord.equals("")){}                        //иначе находит 281 совпадение ""
+//            else if (frequencyRegisterMap.containsKey(currentWord)) {
+//                Integer value = frequencyRegisterMap.get(currentWord);
+//                frequencyRegisterMap.replace(currentWord, value = value + 1);
+//            } else {
+//                frequencyRegisterMap.put(currentWord, 1);
+//            }
+//        }
 
         for (String key : frequencyRegisterMap.keySet()) {
             wordCountPairs.add(new WordCountPair(key, frequencyRegisterMap.get(key)));

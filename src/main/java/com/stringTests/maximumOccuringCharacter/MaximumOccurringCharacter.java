@@ -7,7 +7,7 @@ public class MaximumOccurringCharacter
 {
     public static void main(String[] args)
     {
-        String str = "cccc o dd bb               ssssss";
+        String str = "cccc rrrr o dd bb               ssssss";
         Storage storage = new Storage(str);
 
 //        List<KeyValuePair> storage = getStorage(str);

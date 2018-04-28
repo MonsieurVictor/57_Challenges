@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public interface ITextReader {
 
-    public void setFilePath(String path) throws IOException;
+    public void readFileWithAPath(String path) throws IOException;
 
-    public StringBuffer getTextBuffer() throws IOException;
+    public StringBuffer getTextBuffer(String path) throws IOException;
 }

@@ -8,7 +8,9 @@ public class TextReader implements ITextReader {
 
     private StringBuffer buffer;
 
-    public void setFilePath(String path) throws IOException {
+    private String filePath;
+
+    public void readFileWithAPath(String path) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(path));
         this.buffer = new StringBuffer();
         while (reader.ready()) {
@@ -16,7 +18,8 @@ public class TextReader implements ITextReader {
         }
     }
 
-    public StringBuffer getTextBuffer() {
+    public StringBuffer getTextBuffer(String path) throws IOException {
+        readFileWithAPath(path);
         return this.buffer;
     }
 }

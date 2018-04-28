@@ -34,3 +34,6 @@ Error reading flags:java.lang.StringIndexOutOfBoundsException: String index out 
 Error reading flags:java.lang.StringIndexOutOfBoundsException: String index out of range: 53619
 Error reading flags:java.lang.StringIndexOutOfBoundsException: String index out of range: 53619
 Error reading flags:java.lang.NullPointerException
+Error reading flags:java.lang.NullPointerException
+Error reading flags:java.lang.NullPointerException
+Error reading flags:java.lang.NullPointerException

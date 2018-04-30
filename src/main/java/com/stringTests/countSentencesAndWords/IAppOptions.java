@@ -12,4 +12,9 @@ public interface IAppOptions {
     String getIgnoreListFilePath();
 
     boolean isIgnoreListEnabled();
+
+    boolean isFreqEnabled();
+
+    boolean isStatsEnabled();
+
 }

@@ -5,7 +5,7 @@ public interface IResultViewer {
     /**
      * think of it
      */
-    public void setOptions();
-    public void report(ITextAnalyzer analyzer);
+    void setOptions();
+    void report(ITextAnalyzer analyzer);
 
 }

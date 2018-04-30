@@ -19,7 +19,7 @@ import java.util.List;
  *      - total words count
  *      - unique words count
  *   frequency:
- *      - words frequency in th following format:
+ *      - words frequency in the following format:
  *          - hobbit: <total count>, <in how many sentences encountered>
  * 
  */
@@ -46,35 +46,31 @@ public class MainAppCounter {
 
     }
 
-    private List<String> parseIgnoreList(String ignoreListFilePath) throws IOException {
 
-        analyzer.setBuffer(reader.getTextBuffer(ignoreListFilePath));
-        analyzer.setIgnoreList(analyzer.getTotalWords());
 
-        return null;
-    }
-
-    public void execute(String[] args) {
-        try {
+    public void execute(String[] args) throws Exception {
+//        try {
             options.parseOptions(args);
 
             if (options.isIgnoreListEnabled()) {
-                analyzer.setIgnoreList(this.parseIgnoreList(options.getIgnoreListFilePath()));
+                analyzer.setIgnoreList(reader.getTextBuffer(options.getIgnoreListFilePath()));
             }
+
             analyzer.setBuffer(reader.getTextBuffer(options.getFilePath()));
             analyzer.doAnalyze(options);
             viewer.report(analyzer);
-        } catch (IOException e) {
-            logger.errorOpen(e);
-            // nice report on can't open the file
-        } catch (Exception e) {
-            logger.errorReadFlags(e);
-            // nice report here
-        }
+
+//        } catch (IOException e) {
+//            logger.errorOpen(e);
+//            // nice report on can't open the file
+//        } catch (Exception e) {
+//            logger.errorReadFlags(e);
+//            // nice report here
+//        }
     }
     
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ITextReader reader = new TextReader();
         IErrorLogger logger = new ErrorLogger();
         ITextAnalyzer analyzer = new TextAnalyzer();

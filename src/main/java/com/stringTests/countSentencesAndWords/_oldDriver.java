@@ -25,7 +25,7 @@ public class _oldDriver {
 
     public int countSentences() throws IOException {
 
-        BufferedReader reader = new BufferedReader(new FileReader("DBDir/text.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("DBDir/Hobbit.txt"));
         int sentenceCount = 0;
 
         while (reader.ready()) {
@@ -40,7 +40,7 @@ public class _oldDriver {
     public void getFrequencies() throws IOException {
 
         List<String> wordsOnly = new ArrayList<String>();
-        BufferedReader reader = new BufferedReader(new FileReader("DBDir/text.txt"));
+        BufferedReader reader = new BufferedReader(new FileReader("DBDir/Hobbit.txt"));
 
         while (reader.ready()) {
             String str = reader.readLine();

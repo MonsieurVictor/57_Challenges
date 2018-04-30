@@ -24,9 +24,21 @@ public class AppOptions implements IAppOptions {
 
     public boolean isStatsEnabled = false;
     public boolean isFreqEnabled = false;
-    private boolean isIgnoreEnabled = false;
+    public boolean isIgnoreEnabled = false;
 
     private String[] commandArgs;
+
+
+
+
+    public boolean isFreqEnabled() {
+        return this.isFreqEnabled;
+    }
+
+    public boolean isStatsEnabled() {
+        return this.isStatsEnabled;
+    }
+
 
     public boolean isIgnoreListEnabled() {
         return this.isIgnoreEnabled;

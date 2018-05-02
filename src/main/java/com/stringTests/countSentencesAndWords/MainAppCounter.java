@@ -23,7 +23,8 @@ import java.util.List;
  *          - hobbit: <total count>, <in how many sentences encountered>
  * 
  */
-public class MainAppCounter {
+
+public class MainAppCounter { // -a или ' ' , в чем разница?
 
     private ITextReader reader;
     private ITextAnalyzer analyzer;
@@ -76,7 +77,7 @@ public class MainAppCounter {
         ITextAnalyzer analyzer = new TextAnalyzer();
         IAppOptions options = new AppOptions();
         IResultViewer viewer = new ConsoleResultViewer();
-        MainAppCounter app = new MainAppCounter(reader, analyzer, options, viewer, logger);
+        MainAppCounter app = new MainAppCounter(reader, analyzer, options, viewer, logger); //почему нельзя просто создать объект с пустыми аргументами?
         app.execute(args);
     }
 

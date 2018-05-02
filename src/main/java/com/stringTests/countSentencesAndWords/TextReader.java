@@ -4,13 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/** is responsible for reading text by a file's path;
+ **/
+
 public class TextReader implements ITextReader {
 
     private StringBuffer buffer;
 
-    private String filePath;
+    public void readFileByAPath(String path) throws IOException {
 
-    public void readFileWithAPath(String path) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(path));
         this.buffer = new StringBuffer();
         while (reader.ready()) {
@@ -19,7 +21,8 @@ public class TextReader implements ITextReader {
     }
 
     public StringBuffer getTextBuffer(String path) throws IOException {
-        readFileWithAPath(path);
+
+        readFileByAPath(path);
         return this.buffer;
     }
 }

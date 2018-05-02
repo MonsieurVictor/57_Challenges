@@ -1,5 +1,8 @@
 package com.stringTests.countSentencesAndWords;
 
+/**
+ * reportis the results to a console
+ */
 
 public class ConsoleResultViewer implements IResultViewer {
 

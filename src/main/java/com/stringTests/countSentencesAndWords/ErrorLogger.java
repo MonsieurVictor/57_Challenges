@@ -6,7 +6,11 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
+/** is responsible for catching errors and writing them to Errorlog
+**/
+
 public class ErrorLogger implements IErrorLogger {
+
     public void errorOpen(IOException e) {
 
         String filePath = "ErrorLog.txt";

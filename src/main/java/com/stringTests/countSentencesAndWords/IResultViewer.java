@@ -3,8 +3,9 @@ package com.stringTests.countSentencesAndWords;
 public interface IResultViewer {
 
     /**
-     * think of it
+     * implements the logic of reporting the results
      */
+
     void setOptions();
     void report(ITextAnalyzer analyzer);
 

@@ -2,8 +2,12 @@ package com.stringTests.countSentencesAndWords;
 
 import java.io.IOException;
 
-public interface IErrorLogger {
-    public void errorOpen(IOException e);
+/**
+ * implements the logic of processing errors
+ */
 
-    public void errorReadFlags(Exception e);
+public interface IErrorLogger {
+    void errorOpen(IOException e);
+
+    void errorReadFlags(Exception e);
 }

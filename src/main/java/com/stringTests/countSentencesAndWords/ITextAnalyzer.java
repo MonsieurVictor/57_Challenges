@@ -2,9 +2,11 @@ package com.stringTests.countSentencesAndWords;
 
 import java.util.List;
 
+/**
+ * implements the logic of analyzing text
+ */
+
 public interface ITextAnalyzer {
-
-
 
     void setBuffer(StringBuffer buffer);
 
@@ -32,5 +34,5 @@ public interface ITextAnalyzer {
 
     int getTrioAppear(int i);
 
-    public List<String> getTotalWordsWithoutIgnored();
+    List<String> getTotalWordsWithoutIgnored();
 }

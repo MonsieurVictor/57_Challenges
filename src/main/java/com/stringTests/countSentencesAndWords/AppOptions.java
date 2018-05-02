@@ -13,6 +13,7 @@ import java.util.stream.Stream;
  *   - filePath (mandatory): the path to file with text to analyze
  *   - ignoreListFilePath (optional, if the "w" flag is true): the path to file with words to ignore
  */
+
 public class AppOptions implements IAppOptions {
 
     private final String STATS_FLAG = "-s";

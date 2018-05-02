@@ -3,13 +3,18 @@ package com.stringTests.countSentencesAndWords;
 import java.util.*;
 import java.util.stream.Stream;
 
+/**
+ * analyzes words (quantity, frequency, etc)
+ */
+
 public class TextAnalyzer implements ITextAnalyzer {
 
-    private class WordCountPair {
+    private class WordFreqPair {
+
         String word;
         int count;
 
-        WordCountPair(String key, Integer value) {
+        WordFreqPair(String key, Integer value) {
             this.word = key;
             this.count = value;
         }
@@ -38,40 +43,42 @@ public class TextAnalyzer implements ITextAnalyzer {
 
     private List<String> uniqueWordsList = new ArrayList<String>();
 
-    private List<WordCountPair> wordFreqPairs = new ArrayList<WordCountPair>();
+    private List<WordFreqPair> wordFreqPairs = new ArrayList<WordFreqPair>();
 
     private List<WordFreqAppearTrio> wordFreqAppearTrios = new ArrayList<WordFreqAppearTrio>();
 
     private int endOfSentence;
     private int beginOfSentence;
 
-    public IAppOptions options;
+    private IAppOptions options;
 
     public void doAnalyze(IAppOptions options) {
         this.options = options;
         getAllSentencesToList(buffer);
 
-        if (options.isIgnoreListEnabled()) {
+        if (options.isIgnoreListEnabled()) { //for ignoreList
             parseTotalWords(buffer);
             getTotalWordsWithoutIgnored().size();
         } else {
             parseTotalWords(buffer);
 
         }
-        if (options.isStatsEnabled()) {
+
+        getFrequencies();
+
+        if (options.isStatsEnabled()) { // for Statistics
             getUniqueWordsCount();
             getSentencesCount();
         }
 
-        if (options.isFreqEnabled()) {
-            getFrequencies();
+        if (options.isFreqEnabled()) { // for analyzing frequency
             analyzeWordAppearance();
             getWordsSpecifiedFrequency(5);
             getWordsSpecifiedFrequency(5, 10);
         }
     }
 
-    public List<String> getAllSentencesToList(StringBuffer buffer) {
+    private List<String> getAllSentencesToList(StringBuffer buffer) {
         this.buffer = buffer;
 
         for (int i = 0; i < this.buffer.length(); i++) {
@@ -94,7 +101,7 @@ public class TextAnalyzer implements ITextAnalyzer {
         return sentences.size();
     }
 
-    public void parseTotalWords(StringBuffer buffer) {
+    private void parseTotalWords(StringBuffer buffer) {
 
         Stream.of(buffer
                 .toString()
@@ -111,7 +118,7 @@ public class TextAnalyzer implements ITextAnalyzer {
         return ignoreList;
     }
 
-    public List<String> parseIgnoreWords(StringBuffer ignoreBuffer){
+    private List<String> parseIgnoreWords(StringBuffer ignoreBuffer){
         Stream.of(ignoreBuffer
                 .toString()
                 .split("[^A-Za-zА-Яа-я]+"))
@@ -121,6 +128,7 @@ public class TextAnalyzer implements ITextAnalyzer {
     }
 
     public List<String> getTotalWordsWithoutIgnored() {
+
         int i = 0;
         while (i < totalWords.size()) {
             for (int j = 0; j < ignoreList.size(); j++){
@@ -147,7 +155,6 @@ public class TextAnalyzer implements ITextAnalyzer {
     public int getUniqueWordsCount() {
 
         uniqueWordsList = getWordsSpecifiedFrequency(1, 1);
-//        System.out.println("uniqueWordsList.size() " + uniqueWordsList.size());
         return uniqueWordsList.size();
     }
 
@@ -165,9 +172,7 @@ public class TextAnalyzer implements ITextAnalyzer {
             if (wordFreqPairs.get(i).count >= start) {
                 wordsSpecifiedFreqFrom.add(wordFreqPairs.get(i).word);
             }
-
         }
-//        System.out.println("getWordsSpecifiedFrequency(int start) " + wordsSpecifiedFreqFrom.size());
         return wordsSpecifiedFreqFrom;
 
     }
@@ -179,6 +184,7 @@ public class TextAnalyzer implements ITextAnalyzer {
      * @param end
      * @return
      */
+
     public List<String> getWordsSpecifiedFrequency(int start, int end) {
 
         List<String> wordsSpecifiedFreqFromTo = new ArrayList<>();
@@ -188,7 +194,6 @@ public class TextAnalyzer implements ITextAnalyzer {
                 wordsSpecifiedFreqFromTo.add(wordFreqPairs.get(i).word);
             }
         }
-//        System.out.println("getWordsSpecifiedFrequency(int start, int end) " + wordsSpecifiedFreqFromTo.size());
         return wordsSpecifiedFreqFromTo;
     }
 
@@ -247,7 +252,7 @@ public class TextAnalyzer implements ITextAnalyzer {
         }
     }
 
-    public List<WordCountPair> getFrequencies() {
+    public List<WordFreqPair> getFrequencies() {
 
         Map<String, Integer> frequencyRegisterMap = new HashMap<String, Integer>();
 
@@ -264,24 +269,21 @@ public class TextAnalyzer implements ITextAnalyzer {
         }
 
         for (String key : frequencyRegisterMap.keySet()) {
-            wordFreqPairs.add(new WordCountPair(key, frequencyRegisterMap.get(key)));
+            wordFreqPairs.add(new WordFreqPair(key, frequencyRegisterMap.get(key)));
         }
 
-        Collections.sort(wordFreqPairs, new Comparator<WordCountPair>() {
+        Collections.sort(wordFreqPairs, new Comparator<WordFreqPair>() {
             @Override
-            public int compare(WordCountPair o1, WordCountPair o2) {
+            public int compare(WordFreqPair o1, WordFreqPair o2) {
                 return o2.count - o1.count;
             }
         });
 
-//        for (int i = 0; i < wordFreqPairs.size(); i++) {
-//            System.out.println(wordFreqPairs.get(i).word + " : " + wordFreqPairs.get(i).count);
-//        }
         return wordFreqPairs;
 
     }
 
-    public void analyzeWordAppearance() {
+    private void analyzeWordAppearance() {
 
         for (int i = 0; i < wordFreqPairs.size(); i++) {
             String word = wordFreqPairs.get(i).word;
@@ -289,13 +291,9 @@ public class TextAnalyzer implements ITextAnalyzer {
             int appearance = countSentencesWithWord(wordFreqPairs.get(i).word);
             wordFreqAppearTrios.add(new WordFreqAppearTrio(word, frequency, appearance));
         }
-
-//        for (int i = 0; i < wordFreqAppearTrios.size(); i++) {
-////            System.out.println(wordFreqAppearList.get(i).word + " : " + wordFreqAppearList.get(i).frequency + " , " + wordFreqAppearList.get(i).appearance);
-//        }
     }
 
-    public int countSentencesWithWord(String word) {
+    private int countSentencesWithWord(String word) {
         int sentenceWithWordCount = 0;
 
         for (int i = 0; i < sentences.size(); i++) {
@@ -308,15 +306,14 @@ public class TextAnalyzer implements ITextAnalyzer {
                     .map(String::toLowerCase)
                     .forEach(wordsInTheSentence::add);
 
-            for (int j = 0; j < wordsInTheSentence.size(); j++) {
+            for (String currentWord : wordsInTheSentence) {
 
-                if (wordsInTheSentence.get(j).matches(word)) {
+                if (currentWord.matches(word)) {
                     sentenceWithWordCount++;
                     break;
                 }
             }
         }
-//        System.out.println(word + " : " + sentenceWithWordCount);
         return sentenceWithWordCount;
 
     }

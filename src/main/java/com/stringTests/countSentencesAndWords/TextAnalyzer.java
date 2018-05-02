@@ -34,8 +34,6 @@ public class TextAnalyzer implements ITextAnalyzer {
 
     private List<String> sentences = new ArrayList<String>();
 
-
-
     private List<String> ignoreList = new ArrayList<String>();
 
     private List<String> uniqueWordsList = new ArrayList<String>();
@@ -73,11 +71,6 @@ public class TextAnalyzer implements ITextAnalyzer {
         }
     }
 
-
-
-
-
-
     public List<String> getAllSentencesToList(StringBuffer buffer) {
         this.buffer = buffer;
 
@@ -96,7 +89,6 @@ public class TextAnalyzer implements ITextAnalyzer {
     public void setBuffer(StringBuffer buffer) {
         this.buffer = buffer;
     }
-
 
     public int getSentencesCount() {
         return sentences.size();

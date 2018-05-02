@@ -1,9 +1,6 @@
 package com.stringTests.countSentencesAndWords;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class ConsoleResultViewer implements IResultViewer {
 
     private IAppOptions options;
@@ -32,7 +29,6 @@ public class ConsoleResultViewer implements IResultViewer {
             System.out.println("Words frequencies and in how many sentences encountered: ");
             for (int i = 0;i < analyzer.getTrioSize(); i++)
             System.out.println (analyzer.getTrioWord(i)+ " : " + analyzer.getTrioFreq(i) + " , " + analyzer.getTrioAppear(i));
-
         }
     }
 }

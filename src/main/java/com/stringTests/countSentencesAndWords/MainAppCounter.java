@@ -48,25 +48,25 @@ public class MainAppCounter {
 
 
 
-    public void execute(String[] args) throws Exception {
-//        try {
+    public void execute(String[] args) throws Exception {  //нужно ли объявлять методы в интерфейсе, которые не будут использоваться вне класса  ?
+        try {
             options.parseOptions(args);
 
-            if (options.isIgnoreListEnabled()) {
-                analyzer.setIgnoreList(reader.getTextBuffer(options.getIgnoreListFilePath()));
+            if (options.isIgnoreListEnabled()) {                                                  //принципы ООП
+                analyzer.setIgnoreList(reader.getTextBuffer(options.getIgnoreListFilePath()));    //одобряют такой код в MainApp ?
             }
 
             analyzer.setBuffer(reader.getTextBuffer(options.getFilePath()));
             analyzer.doAnalyze(options);
             viewer.report(analyzer);
 
-//        } catch (IOException e) {
-//            logger.errorOpen(e);
-//            // nice report on can't open the file
-//        } catch (Exception e) {
-//            logger.errorReadFlags(e);
-//            // nice report here
-//        }
+        } catch (IOException e) {
+            logger.errorOpen(e);
+            // nice report on can't open the file
+        } catch (Exception e) {
+            logger.errorReadFlags(e);
+            // nice report here
+        }
     }
     
 

@@ -22,14 +22,11 @@ public class AppOptions implements IAppOptions {
     private String filePath;
     private String ignoreListFilePath;
 
-    public boolean isStatsEnabled = false;
-    public boolean isFreqEnabled = false;
-    public boolean isIgnoreEnabled = false;
+    private boolean isStatsEnabled = false;
+    private boolean isFreqEnabled = false;
+    private boolean isIgnoreEnabled = false;
 
     private String[] commandArgs;
-
-
-
 
     public boolean isFreqEnabled() {
         return this.isFreqEnabled;
@@ -38,7 +35,6 @@ public class AppOptions implements IAppOptions {
     public boolean isStatsEnabled() {
         return this.isStatsEnabled;
     }
-
 
     public boolean isIgnoreListEnabled() {
         return this.isIgnoreEnabled;

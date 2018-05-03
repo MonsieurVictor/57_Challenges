@@ -1,7 +1,7 @@
 package com.stringTests.countSentencesAndWords;
 
 /**
- * reportis the results to a console
+ * reports the results to a console
  */
 
 public class ConsoleResultViewer implements IResultViewer {
@@ -10,7 +10,7 @@ public class ConsoleResultViewer implements IResultViewer {
     private ITextAnalyzer analyzer;
 
     public void setOptions() {
-        this.options = analyzer.getOptions();
+        this.options = analyzer.getOptions();   // передали опции
 
     }
 

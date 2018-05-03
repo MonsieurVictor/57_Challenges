@@ -8,15 +8,13 @@ import java.util.List;
 
 public interface ITextAnalyzer {
 
-    void setBuffer(StringBuffer buffer);
+    void setBuffer(StringBuilder buffer);
 
-    void setIgnoreList(StringBuffer ignoreBuffer);
+    void setIgnoreList(StringBuilder ignoreBuffer);
 
     List<String> getIgnoreList();
 
     void doAnalyze(IAppOptions options);
-
-    List<String> getTotalWords();
 
     IAppOptions getOptions();
 

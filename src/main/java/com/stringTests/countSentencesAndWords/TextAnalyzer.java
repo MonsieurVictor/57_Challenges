@@ -33,7 +33,7 @@ public class TextAnalyzer implements ITextAnalyzer {
         }
     }
 
-    private StringBuffer buffer;
+    private StringBuilder buffer;
 
     private List<String> totalWords = new ArrayList<String>();
 
@@ -53,6 +53,7 @@ public class TextAnalyzer implements ITextAnalyzer {
     private IAppOptions options;
 
     public void doAnalyze(IAppOptions options) {
+
         this.options = options;
         getAllSentencesToList(buffer);
 
@@ -78,7 +79,7 @@ public class TextAnalyzer implements ITextAnalyzer {
         }
     }
 
-    private List<String> getAllSentencesToList(StringBuffer buffer) {
+    private List<String> getAllSentencesToList(StringBuilder buffer) {
         this.buffer = buffer;
 
         for (int i = 0; i < this.buffer.length(); i++) {
@@ -93,7 +94,7 @@ public class TextAnalyzer implements ITextAnalyzer {
         return sentences;
     }
 
-    public void setBuffer(StringBuffer buffer) {
+    public void setBuffer(StringBuilder buffer) {
         this.buffer = buffer;
     }
 
@@ -101,7 +102,7 @@ public class TextAnalyzer implements ITextAnalyzer {
         return sentences.size();
     }
 
-    private void parseTotalWords(StringBuffer buffer) {
+    private void parseTotalWords(StringBuilder buffer) {
 
         Stream.of(buffer
                 .toString()
@@ -110,7 +111,7 @@ public class TextAnalyzer implements ITextAnalyzer {
                 .forEach(totalWords::add);
     }
 
-    public void setIgnoreList(StringBuffer ignoreBuffer) {
+    public void setIgnoreList(StringBuilder ignoreBuffer) {
         this.ignoreList = parseIgnoreWords(ignoreBuffer);
     }
 
@@ -118,7 +119,7 @@ public class TextAnalyzer implements ITextAnalyzer {
         return ignoreList;
     }
 
-    private List<String> parseIgnoreWords(StringBuffer ignoreBuffer){
+    private List<String> parseIgnoreWords(StringBuilder ignoreBuffer){
         Stream.of(ignoreBuffer
                 .toString()
                 .split("[^A-Za-zА-Яа-я]+"))
@@ -146,12 +147,6 @@ public class TextAnalyzer implements ITextAnalyzer {
         return totalWords.size();
     }
 
-    public List <String> getTotalWords(){
-        return totalWords;
-    }
-
-
-
     public int getUniqueWordsCount() {
 
         uniqueWordsList = getWordsSpecifiedFrequency(1, 1);
@@ -165,7 +160,7 @@ public class TextAnalyzer implements ITextAnalyzer {
      * @param start
      * @return
      */
-    public List<String> getWordsSpecifiedFrequency(int start) {
+    private List<String> getWordsSpecifiedFrequency(int start) {
         List<String> wordsSpecifiedFreqFrom = new ArrayList<>();
 
         for (int i = 0; i < wordFreqPairs.size(); i++) {
@@ -185,23 +180,20 @@ public class TextAnalyzer implements ITextAnalyzer {
      * @return
      */
 
-    public List<String> getWordsSpecifiedFrequency(int start, int end) {
+    private List<String> getWordsSpecifiedFrequency(int start, int end) {
 
         List<String> wordsSpecifiedFreqFromTo = new ArrayList<>();
 
-        for (int i = 0; i < wordFreqPairs.size(); i++) {
-            if (wordFreqPairs.get(i).count >= start && wordFreqPairs.get(i).count <= end) {
-                wordsSpecifiedFreqFromTo.add(wordFreqPairs.get(i).word);
+        for (WordFreqPair pair : wordFreqPairs) {
+            if (pair.count >= start && pair.count <= end) {
+                wordsSpecifiedFreqFromTo.add(pair.word);
             }
         }
         return wordsSpecifiedFreqFromTo;
     }
 
     private boolean isPunctuation(Character currentChar) {
-        if (currentChar.toString().matches("[!?.]+")) {
-            return true;
-        }
-        return false;
+        return currentChar.toString().matches("[!?.]+");
     }
 
     private boolean isNotMr(int i) {
@@ -216,8 +208,8 @@ public class TextAnalyzer implements ITextAnalyzer {
 
     private boolean isEndedAfterQuotes(int i) {
         if (i < (this.buffer.length() - 3)) {
-            Character firstChar = new Character(this.buffer.charAt(i + 2));
-            Character secondChar = new Character(this.buffer.charAt(i + 3));
+            Character firstChar = this.buffer.charAt(i + 2);
+            Character secondChar = this.buffer.charAt(i + 3);
 
             if (firstChar == ' ' && secondChar.toString().matches("[a-z]")) {
                 return false;
@@ -252,19 +244,18 @@ public class TextAnalyzer implements ITextAnalyzer {
         }
     }
 
-    public List<WordFreqPair> getFrequencies() {
+    private List<WordFreqPair> getFrequencies() {
 
         Map<String, Integer> frequencyRegisterMap = new HashMap<String, Integer>();
 
-        for (int i = 0; i < totalWords.size(); i++) {
-            String currentWord = totalWords.get(i);
-            if (currentWord.equals("")) {
-            }                        //иначе находит 281 совпадение ""
-            else if (frequencyRegisterMap.containsKey(currentWord)) {
-                Integer value = frequencyRegisterMap.get(currentWord);
-                frequencyRegisterMap.replace(currentWord, value = value + 1);
-            } else {
-                frequencyRegisterMap.put(currentWord, 1);
+        for (String currentWord : totalWords) {
+            if (!currentWord.equals("")) {                  //иначе находит 281 совпадение ""
+                if (frequencyRegisterMap.containsKey(currentWord)) {
+                    Integer value = frequencyRegisterMap.get(currentWord);
+                    frequencyRegisterMap.replace(currentWord, value = value + 1);
+                } else {
+                    frequencyRegisterMap.put(currentWord, 1);
+                }
             }
         }
 
@@ -285,10 +276,10 @@ public class TextAnalyzer implements ITextAnalyzer {
 
     private void analyzeWordAppearance() {
 
-        for (int i = 0; i < wordFreqPairs.size(); i++) {
-            String word = wordFreqPairs.get(i).word;
-            int frequency = wordFreqPairs.get(i).count;
-            int appearance = countSentencesWithWord(wordFreqPairs.get(i).word);
+        for (WordFreqPair pair : wordFreqPairs) {
+            String word = pair.word;
+            int frequency = pair.count;
+            int appearance = countSentencesWithWord(pair.word);
             wordFreqAppearTrios.add(new WordFreqAppearTrio(word, frequency, appearance));
         }
     }
@@ -296,12 +287,11 @@ public class TextAnalyzer implements ITextAnalyzer {
     private int countSentencesWithWord(String word) {
         int sentenceWithWordCount = 0;
 
-        for (int i = 0; i < sentences.size(); i++) {
+        for (String sentence : sentences) {
 
             List<String> wordsInTheSentence = new ArrayList<>();
 
-            Stream.of(sentences
-                    .get(i)
+            Stream.of(sentence
                     .split("[^A-Za-zА-Яа-я]+"))
                     .map(String::toLowerCase)
                     .forEach(wordsInTheSentence::add);
@@ -325,6 +315,7 @@ public class TextAnalyzer implements ITextAnalyzer {
     public int getTrioFreq(int i) {
             return wordFreqAppearTrios.get(i).frequency;
     }
+
     public int getTrioAppear(int i){
         return wordFreqAppearTrios.get(i).appearance;
     }

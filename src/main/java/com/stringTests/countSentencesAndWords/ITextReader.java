@@ -10,5 +10,5 @@ public interface ITextReader {
 
     void readFileByAPath(String path) throws IOException;
 
-    StringBuffer getTextBuffer(String path) throws IOException;
+    StringBuilder getTextBuffer(String path) throws IOException;
 }

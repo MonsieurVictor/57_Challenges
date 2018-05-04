@@ -10,7 +10,7 @@ public class ConsoleResultViewer implements IResultViewer {
     private ITextAnalyzer analyzer;
 
     public void setOptions() {
-        this.options = analyzer.getOptions();   // передали опции
+        this.options = analyzer.getOptions();   // передали опции. грамотно ли?
 
     }
 

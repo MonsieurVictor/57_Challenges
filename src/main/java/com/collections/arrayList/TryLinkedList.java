@@ -1,14 +1,15 @@
 package com.collections.arrayList;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
-public class tryLinkedList {
+/**
+ *  is responsible for iterating through the LinkedList
+ * */
 
-    public static  void execute(){
-        List<Person> linkedList= new Vector();
+public class TryLinkedList {
+
+    public static void execute(){
+        LinkedList <Person> linkedList= new LinkedList<>();
 
         Person person4 = new Person("White");
         Person person5 = new Person("Rabbit");
@@ -18,6 +19,9 @@ public class tryLinkedList {
         linkedList.add(person5);
         linkedList.add(person6);
 
+        System.out.println("linkedList.getFirst() = " + linkedList.getFirst());
+        System.out.println("linkedList.getLast() = " + linkedList.getLast());
+
         Iterator<Person> iterator = linkedList.iterator();
 
         while (iterator.hasNext()){
@@ -26,15 +30,14 @@ public class tryLinkedList {
             iterator.remove();
         }
 
-//        for (Person person: linkedList) {
-//            iterator.next();
-//            linkedList.remove(person);
-//        }
+        for (Person person: linkedList) {
+            iterator.next();
+            linkedList.remove(person);
+        }
 
-//        foo(linkedList);
+        foo(linkedList);
 
-//        System.out.println("linkedList.getFirst() = " + linkedList.getFirst());
-//        System.out.println("linkedList.getLast() = " + linkedList.getLast());
+
 
 
     }

@@ -1,5 +1,9 @@
 package com.collections.testCollections;
 
+/**
+* this program demonstrates operations in different Collections' classes (ArrayList, PriorityQueue, Hashset, Treeset, etc)
+* */
+
 import java.util.*;
 
 public class MainCollection {

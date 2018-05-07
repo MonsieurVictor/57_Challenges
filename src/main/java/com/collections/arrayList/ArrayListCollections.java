@@ -1,18 +1,22 @@
 package com.collections.arrayList;
 
-import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+
+/**
+ * this program demonstrates the List and LinkedList operations
+ * */
 
 public class ArrayListCollections {
 
     public static void main(String[] args) {
 
-        tryLinkedList tryLinkedList = new tryLinkedList();
+        TryLinkedList tryLinkedList = new TryLinkedList();
         tryLinkedList.execute();
 
 
-        List <Person> list = new ArrayList<>();
+        List <Person> list = new LinkedList<>();
         Person person1 = new Person("White");
         Person person2 = new Person("Rabbit");
         Person person3 = new Person("Rabbit2");

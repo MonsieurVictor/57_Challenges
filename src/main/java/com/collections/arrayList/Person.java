@@ -1,5 +1,9 @@
 package com.collections.arrayList;
 
+/**
+ * is responsible for keeping Person's name
+ * */
+
 public class Person {
     private String name;
 

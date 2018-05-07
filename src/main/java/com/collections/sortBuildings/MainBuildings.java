@@ -1,9 +1,12 @@
 package com.collections.sortBuildings;
 
+/**
+ * this program parses info of all buildings in a city (position, index, build date, etc)
+ * */
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -23,9 +26,6 @@ public class MainBuildings {
         for (String line : lines) {
             String[] words = line.split(",");
             lineWords.add(words);
-//
-//            System.out.println(line);
-//            System.out.println("");
         }
 
         TreeMap<String, Integer> map = new TreeMap <String, Integer>();
@@ -47,14 +47,14 @@ public class MainBuildings {
         for (String key : map.keySet()) {
             System.out.println("Year: " + key + " Quantity : " + map.get(key));
         }
-//       for (String[] words : lineWords) {
+       for (String[] words : lineWords) {
 //            if (words[9].equals("1820")) {
-//                for (String word : words) {
-//                    System.out.print(word);
-//                    System.out.print("|");
-//                }
-//                System.out.println();
+                for (String word : words) {
+                    System.out.print(word);
+                    System.out.print("|");
+                }
+                System.out.println();
 //            }
-//        }
+        }
     }
 }

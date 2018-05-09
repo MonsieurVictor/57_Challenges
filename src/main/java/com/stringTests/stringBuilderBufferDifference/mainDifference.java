@@ -1,4 +1,4 @@
-package com.stringTests.differenceStringBuilderStringBuffer;
+package com.stringTests.stringBuilderBufferDifference;
 
 public class mainDifference {
 

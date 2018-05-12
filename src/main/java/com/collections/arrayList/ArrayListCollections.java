@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * this program demonstrates the List and LinkedList operations
- * */
+ **/
 
 public class ArrayListCollections {
 

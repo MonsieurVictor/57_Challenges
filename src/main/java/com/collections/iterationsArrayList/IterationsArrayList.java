@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 
+/**
+ * This programs represents 6 ways of iteration through the ArrayList
+ * **/
+
 public class IterationsArrayList {
     public static void main(String[] args) {
 

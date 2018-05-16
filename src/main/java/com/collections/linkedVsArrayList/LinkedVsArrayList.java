@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- *        this program compares the speed of ArrayList' and LinkedList' methods "get" and "add"
+ *   this program compares the speed of ArrayList' and LinkedList' methods "get" and "add"
  **/
 
 public class LinkedVsArrayList {
@@ -13,7 +13,7 @@ public class LinkedVsArrayList {
     private ArrayList <Integer> arrayList = new ArrayList<>();
     private int size = 5000000;
     private int elementIndex = 100000;
-    private int someNumber = 32134123;
+    private int someNumber = 32;
     private String resultWord;
 
     private long getTime(){

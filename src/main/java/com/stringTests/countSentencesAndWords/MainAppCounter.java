@@ -49,7 +49,7 @@ public class MainAppCounter { // -a или ' ' , в чем разница?
 
 
 
-    public void execute(String[] args) throws Exception {  //нужно ли объявлять методы в интерфейсе, которые не будут использоваться вне класса  ?
+    public void execute(String[] args) {
         try {
             options.parseOptions(args);
 

@@ -35,17 +35,17 @@ public class TextAnalyzer implements ITextAnalyzer {
 
     private StringBuilder buffer;
 
-    private List<String> totalWords = new ArrayList<String>();
+    private List<String> totalWords = new ArrayList<>();
 
-    private List<String> sentences = new ArrayList<String>();
+    private List<String> sentences = new ArrayList<>();
 
-    private List<String> ignoreList = new ArrayList<String>();
+    private List<String> ignoreList = new ArrayList<>();
 
-    private List<String> uniqueWordsList = new ArrayList<String>();
+    private List<String> uniqueWordsList = new ArrayList<>();
 
-    private List<WordFreqPair> wordFreqPairs = new ArrayList<WordFreqPair>();
+    private List<WordFreqPair> wordFreqPairs = new ArrayList<>();
 
-    private List<WordFreqAppearTrio> wordFreqAppearTrios = new ArrayList<WordFreqAppearTrio>();
+    private List<WordFreqAppearTrio> wordFreqAppearTrios = new ArrayList<>();
 
     private int endOfSentence;
     private int beginOfSentence;

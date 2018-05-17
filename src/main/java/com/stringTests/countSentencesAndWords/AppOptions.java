@@ -66,12 +66,14 @@ public class AppOptions implements IAppOptions {
     }
 
     private AppOptions setStatsEnabled() {
-        if (isOptionSpecified(this.STATS_FLAG, this.commandArgs)) { this.isStatsEnabled = true; }
+        this.isStatsEnabled = isOptionSpecified(this.STATS_FLAG, this.commandArgs);
+        //if (isOptionSpecified(this.STATS_FLAG, this.commandArgs)) { this.isStatsEnabled = true; }
         return this;
     }
 
     private AppOptions setFrequencyEnabled() {
-        if (isOptionSpecified(this.FREQ_FLAG, this.commandArgs)) { this.isFreqEnabled = true; }
+        this.isFreqEnabled = isOptionSpecified(this.FREQ_FLAG, this.commandArgs);
+        //if (isOptionSpecified(this.FREQ_FLAG, this.commandArgs)) { this.isFreqEnabled = true; }
         return this;
     }
 

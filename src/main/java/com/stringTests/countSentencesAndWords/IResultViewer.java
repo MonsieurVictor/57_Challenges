@@ -7,6 +7,7 @@ public interface IResultViewer {
      */
 
     void setOptions();
+    //void setOptions(IAppOptions options);
     void report(ITextAnalyzer analyzer);
 
 }

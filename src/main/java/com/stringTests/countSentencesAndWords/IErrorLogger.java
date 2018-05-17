@@ -7,6 +7,7 @@ import java.io.IOException;
  */
 
 public interface IErrorLogger {
+
     void errorOpen(IOException e);
 
     void errorReadFlags(Exception e);

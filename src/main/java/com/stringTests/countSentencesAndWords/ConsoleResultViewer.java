@@ -11,7 +11,6 @@ public class ConsoleResultViewer implements IResultViewer {
 
     public void setOptions() {
         this.options = analyzer.getOptions();   // передали опции. грамотно ли?
-
     }
 
     public void report(ITextAnalyzer analyzer) {
@@ -19,9 +18,8 @@ public class ConsoleResultViewer implements IResultViewer {
         setOptions();
         if (options.isIgnoreListEnabled()){
             System.out.println("Ignored words :" + analyzer.getIgnoreList());
-
-
         }
+
         if (options.isStatsEnabled()){
             System.out.println("Sentences count: " + analyzer.getSentencesCount());
             System.out.println("Total words count : " + analyzer.getTotalWordsCount());

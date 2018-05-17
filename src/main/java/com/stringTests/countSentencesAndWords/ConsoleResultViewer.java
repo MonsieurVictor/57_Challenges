@@ -9,13 +9,16 @@ public class ConsoleResultViewer implements IResultViewer {
     private IAppOptions options;
     private ITextAnalyzer analyzer;
 
-    public void setOptions() {
-        this.options = analyzer.getOptions();   // передали опции. грамотно ли?
+//    public void setOptions() {
+//        this.options = analyzer.getOptions();   // передали опции. грамотно ли?
+//    }
+
+    public void setOptions(IAppOptions options) {
+
     }
 
     public void report(ITextAnalyzer analyzer) {
         this.analyzer = analyzer;
-        setOptions();
         if (options.isIgnoreListEnabled()){
             System.out.println("Ignored words :" + analyzer.getIgnoreList());
         }

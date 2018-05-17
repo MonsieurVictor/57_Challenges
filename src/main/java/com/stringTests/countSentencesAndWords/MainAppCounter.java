@@ -59,6 +59,7 @@ public class MainAppCounter { // -a или ' ' , в чем разница?
 
             analyzer.setBuffer(reader.getTextBuffer(options.getFilePath()));
             analyzer.doAnalyze(options);
+            viewer.setOptions(options);
             viewer.report(analyzer);
 
         } catch (IOException e) {

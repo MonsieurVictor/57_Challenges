@@ -19,6 +19,7 @@ public class AppOptions implements IAppOptions {
     private final String STATS_FLAG = "-s";
     private final String FREQ_FLAG = "-f";
     private final String IGNORE_FLAG = "-w";
+    private final String ALLOPTIONS_FLAG = "-a";
 
     private String filePath;
     private String ignoreListFilePath;
@@ -65,15 +66,21 @@ public class AppOptions implements IAppOptions {
         return this;
     }
 
-    private AppOptions setStatsEnabled() {
+    private AppOptions setStats() {
         this.isStatsEnabled = isOptionSpecified(this.STATS_FLAG, this.commandArgs);
-        //if (isOptionSpecified(this.STATS_FLAG, this.commandArgs)) { this.isStatsEnabled = true; }
         return this;
     }
 
-    private AppOptions setFrequencyEnabled() {
+    private AppOptions setAllOptions() {
+        if(isOptionSpecified(this.ALLOPTIONS_FLAG, this.commandArgs)) {
+            isStatsEnabled = true;
+            isFreqEnabled = true;
+        }
+        return this;
+    }
+
+    private AppOptions setFrequency() {
         this.isFreqEnabled = isOptionSpecified(this.FREQ_FLAG, this.commandArgs);
-        //if (isOptionSpecified(this.FREQ_FLAG, this.commandArgs)) { this.isFreqEnabled = true; }
         return this;
     }
 
@@ -96,8 +103,9 @@ public class AppOptions implements IAppOptions {
         this
             .verifyCommandFormat()
             .setFilePath()
-            .setStatsEnabled()
-            .setFrequencyEnabled()
+            .setStats()
+            .setFrequency()
+            .setAllOptions()
             .setIgnoreList();
     }
 

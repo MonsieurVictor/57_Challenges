@@ -26,12 +26,12 @@ public class LinkedVsArrayList {
 
     private String compareTime(long arrayTime, long linkedTime) {
 
+
         if(arrayTime - linkedTime > 0) {
             resultWord = "LinkedList";
         } else if (arrayTime - linkedTime == 0) {
             resultWord = "they are equal";
-        }
-        else resultWord = "ArrayList";
+        } else resultWord = "ArrayList";
         return resultWord;
     }
 
@@ -64,8 +64,6 @@ public class LinkedVsArrayList {
 
         System.out.println("Better is: " + compareTime(arrayResultTime,linkedResultTime));
         System.out.println();
-
-
 
     }
 
@@ -105,7 +103,6 @@ public class LinkedVsArrayList {
 
 
     public static void main(String[] args) {
-
         LinkedVsArrayList linkedVsArrayList = new LinkedVsArrayList();
         linkedVsArrayList.start();
     }

@@ -3,6 +3,7 @@ package com.collections.arrayListMethods;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 /**
  * This program represents ArrayList methods.
@@ -41,11 +42,11 @@ public class ArrayListMethods {
     }
 
     private ArrayList<Integer> sort_ArrayList_Desc(ArrayList<Integer> tempList) {
-        this.tempList = tempList;
-
+        /*this.tempList = tempList;
         Collections.sort(tempList);
         Collections.reverse(tempList);
-        return tempList;
+        return tempList;*/
+        return tempList.stream().sorted().collect(Collectors.toCollection(ArrayList::new));
     }
 
     public void fillArrayList(int elementsQuantity) {
@@ -69,7 +70,6 @@ public class ArrayListMethods {
         printList("Reversed list: ", reverse_ArrayList(originList));
         printList("Sorted list descending: ", sort_ArrayList_Desc(originList));
         printList("Sorted list ascending: ", sort_ArrayList_Asc(originList));
-
 
     }
 

@@ -19,7 +19,7 @@ public class AppOptions implements IAppOptions {
     private final String STATS_FLAG = "-s";
     private final String FREQ_FLAG = "-f";
     private final String IGNORE_FLAG = "-w";
-    private final String ALLOPTIONS_FLAG = "-a"; // почему так лучше а не чтоб по умолчанию без флага обе настройки включались?
+    private final String ALL_FLAG = "-a"; // почему так лучше а не чтоб по умолчанию без флага обе настройки включались?
 
     private String filePath;
     private String ignoreListFilePath;
@@ -72,7 +72,7 @@ public class AppOptions implements IAppOptions {
     }
 
     private AppOptions setAllOptions() {
-        if(isOptionSpecified(this.ALLOPTIONS_FLAG, this.commandArgs)) {
+        if(isOptionSpecified(this.ALL_FLAG, this.commandArgs)) {
             isStatsEnabled = true;
             isFreqEnabled = true;
         }

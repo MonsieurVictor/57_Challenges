@@ -5,11 +5,11 @@ public class LinearSearch {
         Integer i1 = 1;
         Integer i2 = 2;
         Integer[] list;
-        for (Integer integer : list = new Integer[](1,2)) {
+/*        for (Integer integer : list = new Integer[](1,2)) {
             integer = (int) Math.random();
-        }
+        }*/
 
-        search(1, list);
+//        search(1, list);
     }
 
         public static int search(Integer n, Integer[] list) {

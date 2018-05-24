@@ -1,4 +1,4 @@
-package com.collections.tasks.LinearSearch;
+package com.collections.tasks.linearSearch;
 
 public class LinearSearch {
     public static void main(String[] args) {

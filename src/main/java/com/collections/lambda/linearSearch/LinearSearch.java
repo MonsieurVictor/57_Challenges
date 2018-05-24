@@ -1,4 +1,4 @@
-package com.collections.tasks.linearSearch;
+package com.collections.lambda.linearSearch;
 
 public class LinearSearch {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class LinearSearch {
             integer = (int) Math.random();
         }*/
 
-//        search(1, list);
+//        searchFilter(1, list);
     }
 
         public static int search(Integer n, Integer[] list) {

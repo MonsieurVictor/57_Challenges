@@ -1,4 +1,4 @@
-package com.collections.tasks.basicStream;
+package com.collections.lambda.basicStream;
 
 
 import java.util.ArrayList;

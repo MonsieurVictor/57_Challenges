@@ -55,6 +55,7 @@ public class IterationsArrayList {
 
         // Java 8 Stream)
         System.out.println("\n\nJava 8 Stream:");
-        cars.forEach((car) -> System.out.print(car + " "));
+        cars.stream()
+                .forEach(car -> System.out.print(car + " "));
     }
 }

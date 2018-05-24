@@ -1,4 +1,4 @@
-package com.collections.tasks.reverseString;
+package com.collections.lambda.reverseString;
 
 public class ReverseString {
     public static void main(String[] args) {

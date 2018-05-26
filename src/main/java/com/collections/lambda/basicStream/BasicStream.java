@@ -1,8 +1,11 @@
 package com.collections.lambda.basicStream;
 
-
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * represents the simple output from ArrayList using lambda
+ **/
 
 public class BasicStream {
     public static void main(String[] args) {

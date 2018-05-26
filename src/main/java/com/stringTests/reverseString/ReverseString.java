@@ -1,4 +1,9 @@
-package com.collections.lambda.reverseString;
+package com.stringTests.reverseString;
+
+/**
+* represents how to reverse a simple string
+*
+**/
 
 public class ReverseString {
     public static void main(String[] args) {

@@ -4,15 +4,16 @@ public class LinearSearch {
     public static void main(String[] args) {
         Integer i1 = 1;
         Integer i2 = 2;
-        Integer[] list;
-/*        for (Integer integer : list = new Integer[](1,2)) {
-            integer = (int) Math.random();
-        }*/
+        Integer[] list = new Integer[2];
+//        list = new Integer[]{i1, i2};
+        for (Integer value : list) {
+            value = (int) Math.random();
+        }
 
-//        searchFilter(1, list);
+        System.out.println(search(1, list));
     }
 
-        public static int search(Integer n, Integer[] list) {
+        public static int search(int n, Integer[] list) {
 
             int index = -1;
             for (int i = 0; i < list.length; i++) {

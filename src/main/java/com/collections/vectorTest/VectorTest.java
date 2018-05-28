@@ -5,7 +5,8 @@ import java.util.Vector;
 
 /**
  * this program shows features of Vector class:
- * ThreadSafe and can show its capacity, but adds 100% of capacity (ArrayList is 50%) and slower than ArrayList
+ * ThreadSafe and can show its capacity,
+ * but adds 100% of capacity (ArrayList is 50%) and slower than ArrayList
  **/
 
 public class VectorTest {

@@ -1,7 +1,7 @@
 package com.collections.lambda.demoStream;
 
 /**
- * a simple program to demonstrate the use of stream in java
+ * a simple program to demonstrate the use of stream and lambda in java
  */
 import java.util.*;
 import java.util.stream.*;

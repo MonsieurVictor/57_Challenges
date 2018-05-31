@@ -1,6 +1,4 @@
-package com.collections.lambda.java8Features;
-
-import static java.lang.StrictMath.sqrt;
+package com.collections.java8Features;
 
 /**
 * from http://winterbe.com/posts/2014/03/16/java-8-tutorial/

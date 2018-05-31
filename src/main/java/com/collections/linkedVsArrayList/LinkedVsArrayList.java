@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
- *   this program compares the speed of ArrayList' and LinkedList' methods "get" and "add"
+ *   This program compares the speed of ArrayList' and LinkedList' methods "get" and "add"
  **/
 
 public class LinkedVsArrayList {

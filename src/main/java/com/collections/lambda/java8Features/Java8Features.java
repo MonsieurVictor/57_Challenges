@@ -2,7 +2,7 @@ package com.collections.lambda.java8Features;
 
 import static java.lang.StrictMath.sqrt;
 
-/*
+/**
 * from http://winterbe.com/posts/2014/03/16/java-8-tutorial/
 * https://habr.com/post/216431/
 * */

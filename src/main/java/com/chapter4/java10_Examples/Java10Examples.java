@@ -79,7 +79,7 @@ public class Java10Examples {
     private class Gen2<Gen1, String> {
     }
 
-    private class Gen3<Gen1, Gen2> {
+    private static class Gen3<Gen1, Gen2> {
     }
 }
 

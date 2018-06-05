@@ -1,55 +1,81 @@
 package com.collections.java9Features;
 
-public class Java9Features {
-   /* Changes to Stream:
 
-    ofNullable, iterate, takeWhile, dropWhile
-    primitive specializations got the last three
-    I wrote a post about Java 9 improvements to the stream API, where you can see them in action.
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
+import java.util.stream.Stream;
 
-    Other stream related changes:
 
-    Matcher (for regex) got a method results that returns a Stream<MatchResult>
-    Scanner (for regex) got three new methods returning streams:
-    Stream<String> tokens()
-    Stream<MatchResult> findAll(Pattern pattern)
-    Stream<MatchResult> findAll(String patString)
-    Collection Factories
-    on List: List<E> of(E e) with overloads for zero to ten elements and varargs
-    on Set: Set<E> of(E e) with overloads for zero to ten elements and varargs
-    on Map:
-    Map<K, V> of(K k1, V v1) with overloads for zero to ten key-value alternations
-    Map<K, V> ofEntries(Entry<K, V>... entries) for variable number of map entries
-    Entry<K, V> entry(K k, V v) to quickly create a map entry
-    Here's a good article explaining collection factory methods.
 
-    Arrays
-    The Arrays class got a ton of new methods. Most of them are primitive specializations of the following, generic methods.
 
-    Equality checks
-    The Comparator is only used to determine equality, which is assumed if cmp.compare(e1, e2) == 0.
+    public class Java9Features {
 
-    boolean equals(T[] a, T[] a2, Comparator<? super T> cmp)
-    boolean equals(T[] a, int aFromIndex, int aToIndex, T[] b, int bFromIndex, int bToIndex, Comparator<? super T> cmp)
-    boolean equals(Object[] a, int aFromIndex, int aToIndex, Object[] b, int bFromIndex, int bToIndex)
-    Finding first mismatch
-    The Comparator is only used to determine equality, which is assumed if cmp.compare(e1, e2) == 0.
+        private interface Card {
 
-    int mismatch(Object[] a, Object[] b)
-    int mismatch(Object[] a, int aFromIndex, int aToIndex, Object[] b, int bFromIndex, int bToIndex)
-    int mismatch(T[] a, T[] b, Comparator<? super T> cmp)
-    int mismatch(T[] a, int aFromIndex, int aToIndex, T[] b, int bFromIndex, int bToIndex, Comparator<? super T> cmp)
-    Comparing
-    int compare(T[] a, T[] b) (for comparable T)
-    int compare(T[] a, int aFromIndex, int aToIndex, T[] b, int bFromIndex, int bToIndex) (for comparable T)
-    int compare(T[] a, T[] b, Comparator<? super T> cmp)
-    int compare(T[] a, int aFromIndex, int aToIndex, T[] b, int bFromIndex, int bToIndex, Comparator<? super T> cmp)
-    Optional
-    ifPresentOrElse, stream (yay!), or
-    primitive specializations got the last three
-    I wrote a post about Java 9 improvements to the Optional API, where you can see them in action.
+            //    Private methods in Interfaces
+//    In Java 8, we can provide method implementation in Interfaces using Default and Static methods. However we cannot create private methods in Interfaces.
 
-            Misc
-    Enumeration got a default method Iterator<E> asIterator()
-    Objects got a number of new checks like T requireNonNullElse(T obj, T defaultObj)*/
-}
+            //    To avoid redundant code and more re-usability, Oracle Corp is going to introduce private methods in Java SE 9 Interfaces. From Java SE 9 on-wards, we can write private and private static methods too in an interface using ‘private’ keyword.
+
+//            These private methods are like other class private methods only, there is no difference between them.
+
+            private Long createCardID() {
+                // Method implementation goes here.
+                return null;
+            }
+
+            private static void displayCardDetails() {
+                // Method implementation goes here.
+            }
+        }
+
+        public static void main(String[] args) throws FileNotFoundException {
+
+
+//    Empty List Example
+
+
+            List immutableList = List.of();
+//    Non-Empty List Example
+
+            List immutableList2 = List.of("one", "two", "three");
+
+//    Stream API Improvements
+//    In Java SE 9, Oracle Corp has added four useful new methods to java.util.Stream interface. As Stream is an interface, all those new implemented methods are default methods. Two of them are very important: dropWhile and takeWhile methods
+
+//    If you are familiar with Scala Language or any Functions programming language, you will definitely know about these methods. These are very useful methods in writing some functional style code. Let us discuss about takeWhile utility method here.
+
+//    This takeWhile() takes a predicate as an argument and returns a Stream of subset of the given Stream values until that Predicate returns false for the first time. If first value does NOT satisfy that Predicate, it just returns an empty Stream.
+
+            Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).takeWhile(i -> i < 5)
+                    .forEach(System.out::println);
+
+
+        }
+//    Try With Resources Improvement
+//    We know, Java SE 7 has introduced a new exception handling construct: Try-With-Resources to manage resources automatically. The main goal of this new statement is “Automatic Better Resource Management”.
+
+//    Java SE 9 is going to provide some improvements to this statement to avoid some more verbosity and improve some Readability.
+//
+//    Java SE 7 example
+
+        void testARM_Before_Java9() throws IOException {
+            BufferedReader reader1 = new BufferedReader(new FileReader("journaldev.txt"));
+            try (BufferedReader reader2 = reader1) {
+                System.out.println(reader2.readLine());
+            }
+        }
+//    Java 9 example
+
+        void testARM_Java9() throws IOException {
+            BufferedReader reader1 = new BufferedReader(new FileReader("journaldev.txt"));
+            try (reader1) {
+                System.out.println(reader1.readLine());
+            }
+        }
+    }
+
+

@@ -1,21 +1,15 @@
 package com.collections.java9Features;
 
-
 import jdk.incubator.http.HttpClient;
 import jdk.incubator.http.HttpRequest;
 import jdk.incubator.http.HttpResponse;
-
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URI;
 import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
-
-
 
     public class Java9Features {
 
@@ -55,11 +49,12 @@ import java.util.stream.Stream;
 
             Stream<Integer> s = Optional.of(1).stream();
 
-            // A new way of performing HTTP calls arrives with Java 9.
+     /*       // A new way of performing HTTP calls arrives with Java 9.
             // This much overdue replacement for the old `HttpURLConnection` API also supports WebSockets and HTTP/2 out of the box.
             // One caveat: The new HttpClient API is delivered as a so-called _incubator module_ in Java 9.
             // This means the API isn't guaranteed to be 100% final yet.
             // Still, with the arrival of Java 9 you can already start using this API:
+
 
             HttpClient client = HttpClient.newHttpClient();
 
@@ -70,7 +65,8 @@ import java.util.stream.Stream;
                             .build();
 
 
-            HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandler.asString());
+            HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandler.asString());*/
+     
             //    Empty List Example
 
             List immutableList = List.of();

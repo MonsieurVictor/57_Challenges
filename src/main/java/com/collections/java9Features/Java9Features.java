@@ -12,6 +12,13 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
     public class Java9Features {
+        static class Resource{
+            private Resource(String str){
+
+
+            }
+        }
+
 
         private interface Card {
 
@@ -33,6 +40,35 @@ import java.util.stream.Stream;
         }
 
         public static void main(String[] args) throws IOException, InterruptedException {
+
+//            Language and syntax improvements
+//            Now it will be easier to write the try with resources statement. Previously all the resources that that have to be closed after the execution had to be initialized in the try clause as in this example:
+
+
+            try(Resource res = new Resource("res")){
+                //Code using res object
+            }
+            From Java 9 we can use final and effectively final resources in the try clause just like that:
+
+            1
+            2
+            3
+            4
+            5
+            Resource res1 = new Resource("res1");
+            final Resource res2 = new Resource("res2");
+            try(res1;res2){
+                //Code using resource objects
+            }
+            From Java 9 variable name cannot be consist of a single underscore (“_”). It will be possible to write underscores in your variable names as in my_var, but alone underscore will result in error. The reason behind this that the underscore will be reserved for future use in the language.
+
+                    We will be able to use diamond operator in conjunction with anonymous inner
+            classes:
+
+            1
+            2
+            BarClass<Integer> bar = new BarClass<>(1) { // anonymous inner class
+            };
 
             // The Streams API is arguably one of the best improvements to the Java standard library in a long time.
             // It allows you to create declarative pipelines of transformations on collections. With Java 9, this only gets better.
@@ -66,7 +102,7 @@ import java.util.stream.Stream;
 
 
             HttpResponse<String> resp = client.send(req, HttpResponse.BodyHandler.asString());*/
-     
+
             //    Empty List Example
 
             List immutableList = List.of();
@@ -83,6 +119,9 @@ import java.util.stream.Stream;
             Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).takeWhile(i -> i < 5)
                     .forEach(System.out::println);
             }
+
+
+
             //    Try With Resources Improvement
             //    We know, Java SE 7 has introduced a new exception handling construct: Try-With-Resources to manage resources automatically.
             //    The main goal of this new statement is “Automatic Better Resource Management”.

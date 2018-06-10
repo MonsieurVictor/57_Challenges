@@ -48,27 +48,14 @@ import java.util.stream.Stream;
             try(Resource res = new Resource("res")){
                 //Code using res object
             }
-            From Java 9 we can use final and effectively final resources in the try clause just like that:
+//            From Java 9 we can use final and effectively final resources in the try clause just like that:
 
-            1
-            2
-            3
-            4
-            5
             Resource res1 = new Resource("res1");
             final Resource res2 = new Resource("res2");
             try(res1;res2){
                 //Code using resource objects
             }
-            From Java 9 variable name cannot be consist of a single underscore (“_”). It will be possible to write underscores in your variable names as in my_var, but alone underscore will result in error. The reason behind this that the underscore will be reserved for future use in the language.
 
-                    We will be able to use diamond operator in conjunction with anonymous inner
-            classes:
-
-            1
-            2
-            BarClass<Integer> bar = new BarClass<>(1) { // anonymous inner class
-            };
 
             // The Streams API is arguably one of the best improvements to the Java standard library in a long time.
             // It allows you to create declarative pipelines of transformations on collections. With Java 9, this only gets better.

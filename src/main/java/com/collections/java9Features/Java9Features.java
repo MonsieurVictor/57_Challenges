@@ -1,8 +1,6 @@
 package com.collections.java9Features;
 
-import jdk.incubator.http.HttpClient;
-import jdk.incubator.http.HttpRequest;
-import jdk.incubator.http.HttpResponse;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -40,21 +38,25 @@ import java.util.stream.Stream;
         }
 
         public static void main(String[] args) throws IOException, InterruptedException {
+            Java9Features java9Features = new Java9Features();
+            //shows package name;
+            java9Features.showPackageName();
+
 
 //            Language and syntax improvements
 //            Now it will be easier to write the try with resources statement. Previously all the resources that that have to be closed after the execution had to be initialized in the try clause as in this example:
 
 
-            try(Resource res = new Resource("res")){
+    /*        try(Resource res = new Resource("res")){
                 //Code using res object
-            }
+            }*/
 //            From Java 9 we can use final and effectively final resources in the try clause just like that:
 
-            Resource res1 = new Resource("res1");
+/*            Resource res1 = new Resource("res1");
             final Resource res2 = new Resource("res2");
             try(res1;res2){
                 //Code using resource objects
-            }
+            }*/
 
 
             // The Streams API is arguably one of the best improvements to the Java standard library in a long time.
@@ -126,9 +128,13 @@ import java.util.stream.Stream;
 
         void testARM_Java9() throws IOException {
             BufferedReader reader1 = new BufferedReader(new FileReader("journaldev.txt"));
+
             try (reader1) {
                 System.out.println(reader1.readLine());
             }
+        }
+        void showPackageName(){
+            System.out.println("Package name is" + this.getClass().getPackageName());
         }
     }
 

@@ -41,6 +41,7 @@ import java.util.stream.Stream;
             Java9Features java9Features = new Java9Features();
             //shows package name;
             java9Features.showPackageName();
+            java9Features.getProcessPid();
 
 
 //            Language and syntax improvements
@@ -132,9 +133,32 @@ import java.util.stream.Stream;
             try (reader1) {
                 System.out.println(reader1.readLine());
             }
+
+
+
+
+
         }
         void showPackageName(){
             System.out.println("Package name is" + this.getClass().getPackageName());
+        }
+        static void getProcessPid() throws IOException {
+            Process p = Runtime.getRuntime().exec("sleep 1h");
+/*            ProcessHandle h = ProcessHandle.of(p.getPid())  // Optional
+                    .orElseThrow(IllegalStateException::new);
+            // Get PIDs of own or started processes
+            System.out.println("Your pid is " + ProcessHandle.current().getPid());
+            // Do things on exiting process          // CompletableFuture
+            h.onExit().thenRun( ()-> out.println("Sleeper exited") );
+
+
+            System.out.printf("[%d] %s - %s\n", h.getPid(),
+                    h.info().user().orElse("unknown"),
+                    h.info().commandLine().orElse("none")) ;// Get info on process
+
+
+            h.destroy();// Kill a process*/
+
         }
     }
 

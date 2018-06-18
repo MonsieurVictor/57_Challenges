@@ -1,4 +1,4 @@
-package com.collections.java8FuncInterface;
+package com.collections.java8Features.java8FuncInterface;
 /**
  An Interface that contains exactly one abstract method is known as functional interface.
  It can have any number of default, static methods but can contain only one abstract method.

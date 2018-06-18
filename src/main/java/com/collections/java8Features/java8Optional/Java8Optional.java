@@ -1,4 +1,4 @@
-package com.collections.java8Optional;
+package com.collections.java8Features.java8Optional;
 import java.util.Optional;
 
 public class Java8Optional {

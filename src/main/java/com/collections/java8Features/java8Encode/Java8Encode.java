@@ -25,10 +25,42 @@ public class Java8Encode {
 
             System.out.println("Encoded string: "+str);
             // Getting decoder
-            
+
             Base64.Decoder decoder = Base64.getDecoder();
             // Decoding string
             String dStr = new String(decoder.decode(str));
             System.out.println("Decoded string: "+dStr);
+
+           /**
+            *  Java Base64 Example: URL Encoding and Decoding
+            **/
+
+            // Getting encoder
+            Base64.Encoder encoder2 = Base64.getUrlEncoder();
+            // Encoding URL
+            String eStr = encoder2.encodeToString("http://www.javatpoint.com/java-tutorial/".getBytes());
+            System.out.println("Encoded URL: "+eStr);
+            // Getting decoder
+            Base64.Decoder decoder2 = Base64.getUrlDecoder();
+            // Decoding URl
+            String dStr3 = new String(decoder2.decode(eStr));
+            System.out.println("Decoded URL: "+dStr3);
+
+
+           /**
+            *
+            * Java Base64 Example: MIME Encoding and Decoding
+            **/
+            // Getting MIME encoder
+            Base64.Encoder encoder3 = Base64.getMimeEncoder();
+            String message = "Hello, \nYou are informed regarding your inconsistency of work";
+            String eStr3 = encoder3.encodeToString(message.getBytes());
+            System.out.println("Encoded MIME message: "+eStr3);
+
+            // Getting MIME decoder
+            Base64.Decoder decoder3 = Base64.getMimeDecoder();
+            // Decoding MIME encoded message
+            String dStr4 = new String(decoder3.decode(eStr3));
+            System.out.println("Decoded message: "+dStr4);
         }
 }

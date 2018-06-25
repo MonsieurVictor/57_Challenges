@@ -1,11 +1,11 @@
-package com.collections.java8Features;
+package com.collections.java8Features.java8Example;
 
 /**
 * from http://winterbe.com/posts/2014/03/16/java-8-tutorial/
 * https://habr.com/post/216431/
 * */
 
-public class Java8Features {
+public class Java8Example {
 
     class Person {
         String firstName;
@@ -39,7 +39,7 @@ public class Java8Features {
     }
 
     public static void main(String[] args) {
-        Java8Features app = new Java8Features();
+        Java8Example app = new Java8Example();
         app.start();
     }
 

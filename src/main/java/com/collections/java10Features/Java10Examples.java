@@ -1,4 +1,4 @@
-package com.collections.java10_Examples;
+package com.collections.java10Features;
 
 import static java.lang.System.out;
 

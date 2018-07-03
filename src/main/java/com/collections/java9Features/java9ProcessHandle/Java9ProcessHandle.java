@@ -1,5 +1,12 @@
 package com.collections.java9Features.java9ProcessHandle;
 
+/**
+ * ProcessHandle helps to handle and control processes.
+ * We can monitor processes, list its children, get information etc.
+ * This interface contains static factory methods that return instances that are value-based,
+ * immutable and thread-safe.
+ **/
+
 public class Java9ProcessHandle {
     public static void main(String[] args) {
         ProcessHandle currentProcess = ProcessHandle.current();     // Current processhandle

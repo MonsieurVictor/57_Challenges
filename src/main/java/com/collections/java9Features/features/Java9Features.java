@@ -1,10 +1,9 @@
-package com.collections.java9Features;
+package com.collections.java9Features.features;
 
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URI;
 import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;

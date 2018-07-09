@@ -1,5 +1,10 @@
 package com.collections.java7Features.java7BinaryLiterals;
 
+    /** Java added a new feature Binary Literal in Java 7.
+    It allows you to express integral types (byte, short, int, and long) in binary number system.
+    To specify a binary literal, add the prefix 0b or 0B to the integral value.
+    In the following example, we are creating binary literals from integral values.*/
+
 public class Java7BinaryLiterals {
     public static void main(String[] args) {
         // Binary literal in byte type
@@ -29,6 +34,9 @@ public class Java7BinaryLiterals {
         System.out.println("----------Binary Literal in Long----------------");
         System.out.println("l1 = "+l1);
         System.out.println("l2 = "+l2);
+
+    /** In this example, we are creating negative binary,
+    using underscore in binary literals and manipulating as well.*/
 
         byte b11 = 5; // a decimal value
         // Using binary of 5

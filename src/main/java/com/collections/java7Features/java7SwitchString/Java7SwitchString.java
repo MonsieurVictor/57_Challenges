@@ -4,13 +4,13 @@ package com.collections.java7Features.java7SwitchString;
     In Java 7, Java allows you to use string objects in the expression of switch statement.
     In order to use string, you need to consider the following points:
 
-    It must be only string object.
+    1.It must be only String object.
     Object game = "Hockey"; // It is not allowed
     String game = "Hockey"; // It is OK.
-    String object is case sensitive.
+    2.String object is case sensitive.
     "Hickey" and "hocker" are not equal.
-    No Null object
-    be careful while passing string object, passing a null object cause to NullPointerException.*/
+    3. No Null object
+    Be careful while passing string object, passing a null object cause to NullPointerException.*/
 
 public class Java7SwitchString {
     public static void main(String[] args) {
@@ -20,7 +20,7 @@ public class Java7SwitchString {
                 System.out.println("Let's play Hockey");
                 break;
             case "Cricket":
-                System.out.println("Let's play Cricket");
+//                System.out.println("Let's play Cricket");
                 break;
             case "Football":
                 System.out.println("Let's play Football");
@@ -30,7 +30,6 @@ public class Java7SwitchString {
         /**  Output:
          Let's play Cricket
          */
-
 
         String game2 = "Card-Games";
         switch (game2) {
@@ -48,6 +47,7 @@ public class Java7SwitchString {
             default:
                 System.out.println("What game it is?");
         }
+
         /**Output:
          This is a indoor game*/
     }

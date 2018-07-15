@@ -1,5 +1,6 @@
 package com.collections.java7Features.java7SwitchString;
 
+
     /**  String in Switch Statement
     In Java 7, Java allows you to use string objects in the expression of switch statement.
     In order to use string, you need to consider the following points:

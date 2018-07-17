@@ -1,16 +1,19 @@
 package com.collections.java8Features.java8MethodReference;
 import java.util.function.BiFunction;
 
-    /**Java provides a new feature called method reference in Java 8.
+    /**
+    Java provides a new feature called method reference in Java 8.
     Method reference is used to refer method of functional interface.
     It is compact and easy form of lambda expression.
     Each time when you are using lambda expression to just referring a method,
     you can replace your lambda expression with method reference.
-    In this tutorial, we are explaining method reference concept in detail.*/
+    In this tutorial, we are explaining method reference concept in detail.
+    */
 
 interface Sayable{
     void say();
 }
+
 public class Java8MethodReference {
 
     public static void saySomething() {
@@ -21,13 +24,11 @@ public class Java8MethodReference {
         System.out.println("Thread is running...");
     }
 
-
     public static void main(String[] args) {
 
         /** 1) Reference to a Static Method
         You can refer to static method defined in the class.
         Following is the syntax and example which describe the process of referring static method in Java.
-
         Syntax:
         ContainingClass::staticMethodName
         */
@@ -50,6 +51,7 @@ public class Java8MethodReference {
         In the following example,
         we are using predefined functional interface Runnable to refer static method.
         */
+
         Thread t2 = new Thread(Java8MethodReference::ThreadStatus);
         t2.start();
 
@@ -63,6 +65,7 @@ public class Java8MethodReference {
         In the following example, we are using BiFunction interface
         and using it's apply() method.
         */
+
         BiFunction<Integer, Integer, Integer>adder = Arithmetic::add;
         int result = adder.apply(10, 20);
         System.out.println(result);

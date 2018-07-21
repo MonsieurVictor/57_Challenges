@@ -9,5 +9,8 @@ package com.collections.java5Features.java5CovariantReturn;
 //        Let's take a simple example:
 
 public class Java5CovariantReturn {
-           Java5CovariantReturn get(){return this;}
+
+       Java5CovariantReturn get(){
+           return this;
+       }
 }

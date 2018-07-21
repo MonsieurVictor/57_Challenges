@@ -1,8 +1,8 @@
 package com.collections.java5Features.java5CovariantReturn;
 
-public class additionalClass extends Java5CovariantReturn {
+public class subClass extends Java5CovariantReturn {
 
-    additionalClass get(){
+    subClass get(){
         return this;
     }
 
@@ -11,7 +11,7 @@ public class additionalClass extends Java5CovariantReturn {
     }
 
     public static void main(String args[]){
-        new additionalClass().get().message();
+        new subClass().get().message();
     }
 
 }

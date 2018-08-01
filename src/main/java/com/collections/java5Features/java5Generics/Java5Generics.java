@@ -13,7 +13,8 @@ import java.util.*;
         Advantage of Java Generics
         There are mainly 3 advantages of generics. They are as follows:
 
-        1)	Type-safety : We can hold only a single type of objects in generics. It doesn’t allow to store other objects.
+        1)	Type-safety : We can hold only a single type of objects in generics.
+        It doesn’t allow to store other objects.
 
         2)	Type casting is not required: There is no need to typecast the object.
 
@@ -27,7 +28,9 @@ import java.util.*;
         List<String> list = new ArrayList<String>();
         list.add("hello");
         String s = list.get(0);
-        3)	Compile-Time Checking: It is checked at compile time so problem will not occur at runtime. The good programming strategy says it is far better to handle the problem at compile time than runtime.
+
+        3)	Compile-Time Checking: It is checked at compile time so problem will not occur at runtime.
+        The good programming strategy says it is far better to handle the problem at compile time than runtime.
 
         List<String> list = new ArrayList<String>();
         list.add("hello");
@@ -95,20 +98,17 @@ public class Java5Generics {
         }
 
         /** Generic class
-
         A class that can refer to any type is known as generic class.
         Here, we are using T type parameter to create the generic class of specific type.
         Let’s see the simple example to create and use the generic class.
-
         **/
 
         TestGenerics testGenerics = new TestGenerics();
         testGenerics.tryGenericClass();
 
-
-
         /**  Type Parameters
-        The type parameters naming conventions are important to learn generics thoroughly. The commonly type parameters are as follows:
+        The type parameters naming conventions are important to learn generics thoroughly.
+        The commonly type parameters are as follows:
 
         T - Type
         E - Element
@@ -116,7 +116,6 @@ public class Java5Generics {
         N - Number
         V - Value
         */
-
 
         /** Generic Method
         Like generic class, we can create generic method that can accept any type of argument.
@@ -135,7 +134,6 @@ public class Java5Generics {
 
 
         /** Wildcard in Java Generics
-
         The ? (question mark) symbol represents wildcard element.
         It means any type. If we write <? extends Number>,
         it means any child class of Number e.g. Integer, Float, double etc.

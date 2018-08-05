@@ -13,31 +13,60 @@ import java.util.*;
 
 public class Internationalization {
 
-    /**    Example of Local class that prints the informations of the default locale
-           If you want to get the informations about any specific locale,
-           comment the first line statement and uncomment the second line statement in the main method.*/
+    /** Example of Local class that prints the informations of the default locale
+       If you want to get the informations about any specific locale,
+       comment the first line statement and uncomment the second line statement in the main method.*/
 
 
-               public static void main(String[] args) {
+        public static void main(String[] args) {
 
-                   Locale locale=Locale.getDefault();
-                   System.out.println(locale.getDisplayCountry());
-                   System.out.println(locale.getDisplayLanguage());
-                   System.out.println(locale.getDisplayName());
-                   System.out.println(locale.getISO3Country());
-                   System.out.println(locale.getISO3Language());
-                   System.out.println(locale.getLanguage());
-                   System.out.println(locale.getCountry());
+            Locale locale = Locale.getDefault();
+            System.out.println(locale.getDisplayCountry());
+            System.out.println(locale.getDisplayLanguage());
+            System.out.println(locale.getDisplayName());
+            System.out.println(locale.getISO3Country());
+            System.out.println(locale.getISO3Language());
+            System.out.println(locale.getLanguage());
+            System.out.println(locale.getCountry());
 
-                   Locale locale2= new Locale("fr","fr");//for the specific locale
-                   System.out.println(locale2.getDisplayCountry());
-                   System.out.println(locale2.getDisplayLanguage());
-                   System.out.println(locale2.getDisplayName());
-                   System.out.println(locale2.getISO3Country());
-                   System.out.println(locale2.getISO3Language());
-                   System.out.println(locale2.getLanguage());
-                   System.out.println(locale2.getCountry());
+            Locale locale2 = new Locale("fr","fr");//for the specific locale
+            System.out.println(locale2.getDisplayCountry());
+            System.out.println(locale2.getDisplayLanguage());
+            System.out.println(locale2.getDisplayName());
+            System.out.println(locale2.getISO3Country());
+            System.out.println(locale2.getISO3Language());
+            System.out.println(locale2.getLanguage());
+            System.out.println(locale2.getCountry());
 
-               }
-           }
+            /**
+            *  Example of Local class that prints english in different languages
+            **/
+
+
+            Locale enLocale = new Locale("en", "US");
+            Locale frLocale = new Locale("fr", "FR");
+            Locale esLocale = new Locale("es", "ES");
+            System.out.println("English language name (default): " +
+                   enLocale.getDisplayLanguage());
+
+            System.out.println("English language name in French: " +
+                   enLocale.getDisplayLanguage(frLocale));
+            System.out.println("English language name in spanish: " +
+                   enLocale.getDisplayLanguage(esLocale));
+
+
+            /**
+            *  Example of Local class that print display language of many locales
+            **/
+            Locale[] locales = {
+                   new Locale("en", "US"),
+                   new Locale("es", "ES"), new Locale("it", "IT")
+            };
+
+            for (int i=0; i< locales.length; i++) {
+               String displayLanguage = locales[i].getDisplayLanguage(locales[i]);
+               System.out.println(locales[i].toString() + ": " + displayLanguage);
+            }
+        }
+}
 

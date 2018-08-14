@@ -9,7 +9,8 @@ In other words, we can wrap a primitive value into a wrapper class object.
 
 Need of Wrapper Classes
 
-They convert primitive data types into objects. Objects are needed if we wish to modify the arguments passed into a method (because primitive types are passed by value).
+They convert primitive data types into objects.
+Objects are needed if we wish to modify the arguments passed into a method (because primitive types are passed by value).
 The classes in java.util package handles only objects and hence wrapper classes help in this case also.
 Data structures in the Collection framework, such as ArrayList and Vector, store only objects (reference types) and not primitive types.
 An object is needed to support synchronization in multithreading.
@@ -22,6 +23,7 @@ public class WrapperClasses {
         /**
         * autoboxing
         **/
+
         char ch = 'a';;
 
         // Autoboxing- primitive to Character object conversion
@@ -38,6 +40,7 @@ public class WrapperClasses {
         /**
         unboxing
         **/
+
         Character ch2 = 'a';
 
         // unboxing - Character object to primitive conversion
@@ -52,9 +55,7 @@ public class WrapperClasses {
         // printing the values from primitive data types
         System.out.println(num);
 
-
-
-       /**
+        /**
         * demonstrate Wrapping and UnWrapping
         **/
 
@@ -85,6 +86,7 @@ public class WrapperClasses {
         char e='a';
 
         // wrapping around Character object
+
         Character charobj=e;
 
         //  printing the values from objects
@@ -97,6 +99,7 @@ public class WrapperClasses {
 
         // objects to data types (retrieving data types from objects)
         // unwrapping objects to primitive data types
+
         byte bv = byteobj;
         int iv = intobj;
         float fv = floatobj;

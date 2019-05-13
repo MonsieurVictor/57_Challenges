@@ -8,7 +8,7 @@ import java.util.List;
  * This program counts sentences and words frequency from a given text.
  * It is a CLI application with the following specification:
  *
- *      - <app>.java <path>                                  | default launch, all info (stat and frequency) is outputted
+ *      - <app>.java <path> -a                               | default launch, all info (stat and frequency) is outputted
  *      - <app>.java <path> -s                               | only statistic outputted
  *      - <app>.java <path> -f                               | only frequency outputted
  *      - <app>.java <path> -w:<ignore_words_list.txt>       | ignores words from the appropriated file
@@ -81,5 +81,4 @@ public class MainAppCounter { // -a или ' ' , в чем разница?
         MainAppCounter app = new MainAppCounter(reader, analyzer, options, viewer, logger); //почему нельзя просто создать объект с пустыми аргументами?
         app.execute(args);
     }
-
 }

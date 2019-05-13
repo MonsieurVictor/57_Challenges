@@ -12,6 +12,7 @@ import java.util.stream.Stream;
  *  and the following variables:
  *   - filePath (mandatory): the path to file with text to analyze
  *   - ignoreListFilePath (optional, if the "w" flag is true): the path to file with words to ignore
+ *   E.g.: DBDir/Hobbit.txt -a -w DBDir/IgnoreList.txt
  */
 
 public class AppOptions implements IAppOptions {

@@ -39,3 +39,7 @@ Error reading flags:java.lang.NullPointerException
 Error reading flags:java.lang.NullPointerException
 Error reading flags:java.lang.IndexOutOfBoundsException: Index: 13, Size: 12
 Error reading flags:java.lang.Exception: Not specified file path as a first argument
+Error reading flags:java.lang.Exception: Not specified file path as a first argument
+Error reading flags:java.lang.Exception: Not specified file path as a first argument
+Error reading flags:java.lang.Exception: Not specified file path as a first argument
+OpenError:java.io.FileNotFoundException: -a (Не удается найти указанный файл)

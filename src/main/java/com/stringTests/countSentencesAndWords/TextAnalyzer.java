@@ -285,7 +285,7 @@ public class TextAnalyzer implements ITextAnalyzer {
     }
 
     private int countSentencesWithWord(String word) {
-        int sentenceWithWordCount = 0;
+        int sentenceWithWordQuantity = 0;
 
         for (String sentence : sentences) {
 
@@ -299,12 +299,12 @@ public class TextAnalyzer implements ITextAnalyzer {
             for (String currentWord : wordsInTheSentence) {
 
                 if (currentWord.matches(word)) {
-                    sentenceWithWordCount++;
+                    sentenceWithWordQuantity++;
                     break;
                 }
             }
         }
-        return sentenceWithWordCount;
+        return sentenceWithWordQuantity;
 
     }
 

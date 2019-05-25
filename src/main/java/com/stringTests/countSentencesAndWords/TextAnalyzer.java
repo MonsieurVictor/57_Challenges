@@ -48,6 +48,7 @@ public class TextAnalyzer implements ITextAnalyzer {
     private List<WordFreqAppearTrio> wordFreqAppearTrios = new ArrayList<>();
 
     private int endOfSentence;
+
     private int beginOfSentence;
 
     private IAppOptions options;

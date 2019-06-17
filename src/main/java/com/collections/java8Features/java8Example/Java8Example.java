@@ -58,8 +58,8 @@ public class Java8Example {
             }
         };
 
-        formula.calculate(100);     // 100.0
-        formula.sqrt(16);           // 4.0
+        System.out.println(formula.calculate(100));     // 100.0
+        System.out.println(formula.sqrt(16));           // 4.0
 
 /*
         functional interface must contain exactly one abstract method declaration.
@@ -76,14 +76,14 @@ public class Java8Example {
 */
 
         Converter<String, Integer> converter2 = Integer::valueOf;
-        Integer converted2 = converter2.convert("123");
-        System.out.println("(from) -> Integer.valueOf(from): " + converted2);   // 123
+        Integer converted2 = converter2.convert("456");
+        System.out.println("(from) -> Integer.valueOf(from): " + converted2);   // 456
 
 
 /*
         Java 8 enables you to pass references of methods or constructors via the :: keyword.
-         The above example shows how to reference a static method.
-         But we can also reference object methods:
+        The above example shows how to reference a static method.
+        But we can also reference object methods:
 */
 
         class Something {
@@ -97,7 +97,6 @@ public class Java8Example {
         String converted3 = converter3.convert("Java");
         System.out.println("Using constructor, convert Java : " + converted3);    // "J"
 
-
 /*
         Let's see how the :: keyword works for constructors.
         First we define an example bean with different constructors: see "Class Person" above
@@ -109,6 +108,7 @@ public class Java8Example {
 
         PersonFactory<Person> personFactory = Person::new;
         Person person = personFactory.create("Peter", "Parker");
+        System.out.println(person.firstName + " " + person.lastName);
 
     }
 }

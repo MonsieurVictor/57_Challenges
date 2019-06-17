@@ -1,1 +1,1 @@
-http://code-exercises.com/programming/tags/java8-lambdas-streams/
+//http://code-exercises.com/programming/tags/java8-lambdas-streams/

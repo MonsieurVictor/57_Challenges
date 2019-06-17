@@ -1,6 +1,9 @@
 package com.collections.java8Features.java8Encode;
 
+import java.util.Arrays;
 import java.util.Base64;
+import java.util.concurrent.ForkJoinPool;
+
 public class Java8Encode {
         public static void main(String[] args) {
 
@@ -20,13 +23,17 @@ public class Java8Encode {
             System.out.println("Encoded byte array written to another array: "+byteArr3);
             System.out.println("Number of bytes written: "+x);
 
+            Base64.Decoder decoder = Base64.getDecoder();
+            byte decodedArr[]= decoder.decode(byteArr2);
+            System.out.println("Decoded byte array: " + Arrays.toString(decodedArr));
+
             // Encoding string
             String str = encoder.encodeToString("JavaTpoint".getBytes());
 
             System.out.println("Encoded string: "+str);
             // Getting decoder
 
-            Base64.Decoder decoder = Base64.getDecoder();
+
             // Decoding string
             String dStr = new String(decoder.decode(str));
             System.out.println("Decoded string: "+dStr);
@@ -46,6 +53,9 @@ public class Java8Encode {
             String dStr3 = new String(decoder2.decode(eStr));
             System.out.println("Decoded URL: "+dStr3);
 
+            System.out.println("Threads available: " + ForkJoinPool.commonPool().getParallelism());
+
+
 
            /**
             *
@@ -53,7 +63,7 @@ public class Java8Encode {
             **/
             // Getting MIME encoder
             Base64.Encoder encoder3 = Base64.getMimeEncoder();
-            String message = "Hello, \nYou are informed regarding your inconsistency of work";
+            String message = "Hello, You are informed regarding your inconsistency of work";
             String eStr3 = encoder3.encodeToString(message.getBytes());
             System.out.println("Encoded MIME message: "+eStr3);
 

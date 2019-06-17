@@ -13,7 +13,7 @@ import static java.util.stream.Collectors.*;
 public class LambdaTasks {
 
     private int i = 0;
-    private Integer[] intList = {1, 34, 432, 32, 999, 42}; // есть отличие int от Integer ?
+    private Integer[] intList = {1, 34, 432, 32, 999, 42};
     private List<String> upperList = new ArrayList<>();
     private List<String> searchList = new ArrayList<>();
     private List<Integer> arrayList = new ArrayList<>();
@@ -46,16 +46,16 @@ public class LambdaTasks {
         upperList.add("World");
         System.out.println("uppercase: " + upperCase(upperList));
 
-        //returns the Nth element of a list. If the index of the element exceeds the list size, then return -1.
+        //returns the Nth odd element of a list. If the index of the element exceeds the list size, then return -1.
 
+        oddList.add(1);
         oddList.add(2);
         oddList.add(3);
         oddList.add(4);
         oddList.add(5);
         oddList.add(6);
         oddList.add(7);
-        oddList.add(8);
-        System.out.println("Nth element of a list: " + getNthOddElement(oddList, 3));
+        System.out.println("Nth Odd element of a list: Odd elements are first, third, fifth etc..." + getNthOddElement(oddList, 3));
 
 
         // returns a list of all strings that start with the letter 'a' (lower case)
@@ -75,7 +75,7 @@ public class LambdaTasks {
 
         evenOddList.add(3);
         evenOddList.add(4);
-        evenOddList.add(35);
+        evenOddList.add(34);
         evenOddList.add(36);
         evenOddList.add(37);
         evenOddList.add(38);

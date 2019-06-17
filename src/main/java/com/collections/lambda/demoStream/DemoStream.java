@@ -31,7 +31,7 @@ public class DemoStream
         // demonstration of reduce method
         int even = list.stream().filter(x->x%2==0).reduce(0,(ans,i)-> ans+i);
 
-        System.out.println("\nReduce method: " + even);
+        System.out.println("\nReduce method: [5,4,3,2] only even numbers are added to the sum" + even);
 
         // create a list of String
         List<String> names = Arrays.asList("Reflection","Collection","Stream");

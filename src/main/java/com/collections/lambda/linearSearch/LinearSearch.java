@@ -1,14 +1,15 @@
 package com.collections.lambda.linearSearch;
 
+/**Write a method that returns the index of the first occurrence of given integer in a list.
+ Assume that the index of the first element in the list is zero.
+ If the number does not exist return -1.
+ */
+
 public class LinearSearch {
     public static void main(String[] args) {
-        Integer i1 = 1;
-        Integer i2 = 2;
-        Integer[] list = new Integer[2];
-//        list = new Integer[]{i1, i2};
-        for (Integer value : list) {
-            value = (int) Math.random();
-        }
+        Integer i1 = 2;
+        Integer i2 = 1;
+        Integer[] list = new Integer[]{i1, i2};
 
         System.out.println(search(1, list));
     }

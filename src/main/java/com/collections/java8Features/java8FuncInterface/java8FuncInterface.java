@@ -23,6 +23,6 @@ public class java8FuncInterface implements sayable{
     }
     public static void main(String[] args) {
         java8FuncInterface fie = new java8FuncInterface();
-        fie.say("Hello there");
+        fie.say("Hi there");
     }
 }

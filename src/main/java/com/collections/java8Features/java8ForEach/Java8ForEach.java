@@ -18,7 +18,7 @@ public class Java8ForEach {
         gamesList.add("Football");
         gamesList.add("Cricket");
         gamesList.add("Chess");
-        gamesList.add("Hocky");
+        gamesList.add("Hockey");
 
         System.out.println("------------Iterating by passing lambda expression--------------");
         gamesList.forEach(games -> System.out.println(games));
@@ -28,7 +28,7 @@ public class Java8ForEach {
         gamesList2.add("Football");
         gamesList2.add("Cricket");
         gamesList2.add("Chess");
-        gamesList2.add("Hocky");
+        gamesList2.add("Hockey");
         System.out.println("------------Iterating by passing method reference---------------");
         gamesList2.forEach(System.out::println);
 
@@ -39,7 +39,7 @@ public class Java8ForEach {
         gamesListOrdered.add("Football");
         gamesListOrdered.add("Cricket");
         gamesListOrdered.add("Chess");
-        gamesListOrdered.add("Hocky");
+        gamesListOrdered.add("Hockey");
         System.out.println("------------Iterating by passing lambda expression---------------");
         gamesListOrdered.stream().forEachOrdered(games -> System.out.println(games));
         System.out.println("------------Iterating by passing method reference---------------");
